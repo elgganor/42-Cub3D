@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 09:24:39 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/01/28 10:38:16 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef STRUCTURES_H
+# define STRUCTURES_H
 
-# include "includes.h"
-# include "libft.h"
-# include "structures.h"
+typedef struct	s_cub
+{
+	int		*resolution;
 
-/*
-** ===== Prototypes =====
-*/
-int		check_args(char *map_path, char *option);
-void	ft_puterror(char *str);
-void	read_map(char *map_path, t_cub *cub);
-t_cub	*map_init(void);
+	char	*no_texture;
+	char	*so_texture;
+	char	*we_texture;
+	char	*ea_texture;
+	char	*sp_texture;
+	
+	int		f_color;
+	int		c_color;
+
+	char	*map;
+}				t_cub;
 #endif
