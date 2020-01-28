@@ -24,4 +24,8 @@ int		check_args(char *map_path, char *option);
 void	ft_puterror(char *str);
 void	read_map(char *map_path, t_cub *cub);
 t_cub	*map_init(void);
+void	get_resolution(char *line, int *width, int *height);
+void	get_texture(char *line, char **str);
+void	get_color(char *line, int *color);
+void	get_map(char *line, char *map);
 #endif

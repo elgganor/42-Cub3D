@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structures.h                                       :+:      :+:    :+:   */
+/*   get_cub_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 10:38:16 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/01/28 13:43:25 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURES_H
-# define STRUCTURES_H
+#include "cub3d.h"
 
-typedef struct	s_cub
+void	get_resolution(char *line, int *width, int *height)
 {
-	int		height;
-	int		width;
 
-	char	*no_texture;
-	char	*so_texture;
-	char	*we_texture;
-	char	*ea_texture;
-	char	*sp_texture;
-	
-	int		f_color;
-	int		c_color;
+}
 
-	char	*map;
-	char	dir;
-}				t_cub;
-#endif
+void	get_texture(char *line, char **str)
+{
+
+}
+
+void	get_color(char *line, int *color)
+{
+
+}
+
+// void	get_map(char *line, char *map)
+// {
+
+// }

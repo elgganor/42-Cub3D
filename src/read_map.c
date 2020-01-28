@@ -18,41 +18,38 @@ t_cub *map_init(void)
 
 	if (!(cub = (t_cub *)malloc(sizeof(t_cub))))
 		return (NULL);
-	if (!(cub->resolution = (int *)malloc(sizeof(int) * 2)))
-		return (NULL);
+	cub->width = 0;
+	cub->height = 0;
 	cub->no_texture = NULL;
 	cub->so_texture = NULL;
 	cub->we_texture = NULL;
 	cub->ea_texture = NULL;
 	cub->sp_texture = NULL;
 	cub->map = NULL;
+	cub->f_color = 0x0;
+	cub->c_color = 0x0;
+	cub->dir = '0';
 	return (cub);
 }
 
-// get_map
-// get_cub_data
-
-static int	check_map_line(char *line)
+static void	get_cub_data(char *line, t_cub *cub)
 {
 	if (!ft_strncmp(line, "R ", 2))
-		return (1);
+		get_resolution(line, &(cub->width), &(cub->height));
 	else if (!ft_strncmp(line, "NO ", 3))
-		return (2);
+		get_texture(line, &(cub->no_texture));
 	else if (!ft_strncmp(line, "SO ", 3))
-		return (3);
+		get_texture(line, &(cub->so_texture));
 	else if (!ft_strncmp(line, "WE ", 3))
-		return (4);
+		get_texture(line, &(cub->we_texture));
 	else if (!ft_strncmp(line, "EA ", 3))
-		return (5);
+		get_texture(line, &(cub->ea_texture));
 	else if (!ft_strncmp(line, "S ", 2))
-		return (6);
+		get_texture(line, &(cub->sp_texture));
 	else if (!ft_strncmp(line, "C ", 2))
-		return (7);
+		get_color(line, &(cub->c_color));
 	else if (!ft_strncmp(line, "F ", 2))
-		return (8);
-	else if (line[0] == '1')
-		return (9);
-	return (0);
+		get_color(line, &(cub->f_color));
 }
 
 void		read_map(char *map_path, t_cub *cub)
@@ -70,8 +67,8 @@ void		read_map(char *map_path, t_cub *cub)
 	{
 		while (get_next_line(fd, &line) > 0)
 		{
-			// On check de quel type il s'agit
-			type = check_map_line(line);
+			get_cub_data(line, cub);
+			free(line);
 		}
 	}
 }
