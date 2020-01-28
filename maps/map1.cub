@@ -1,0 +1,18 @@
+R 1280 1080
+NO ./path_to_north_texture
+SO ./path_to_south_texture
+WE ./path_to_west_texture
+EA ./path_to_east_texture
+S ./path_to_sprite_texture
+F 12,15,241
+C 123,54,146
+
+1111111111
+1000000001
+1000000001
+10000N0001
+1000000001
+1000000001
+1000000001
+1000000001
+1111111111
