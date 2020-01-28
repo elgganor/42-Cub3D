@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 09:24:31 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/01/28 09:42:51 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/01/28 09:42:52 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+int	check_args(char *map_path, char *option)
 {
-	if (ac > 3 || ac < 2)
-		ft_puterror("You must have at least two arguments;\n");
-	else if (ac == 2 && !check_args(av[1], NULL))
-		ft_putnbr(15);
-	else if (ac == 3 && !check_args(av[1], av[2]))
-		ft_putnbr(13);
+	char	**path;
+	int		path_len;
+
+	path_len = 0;
+	if (map_path)
+	{
+		path = ft_split(map_path, '.');
+		while (path[path_len])
+			path_len++;
+		if (ft_strncmp(path[path_len - 1],"cub", 4))
+		{
+			ft_puterror("Wrong extension for the map;\n");
+			return (EXIT_FAILURE);
+		}
+	}
+	if (option)
+	{
+		if (ft_strncmp(option, "--save", 7))
+		{
+			ft_puterror("Wrong option;\n");
+			return (EXIT_FAILURE);
+		}
+	}
 	return (EXIT_SUCCESS);
 }

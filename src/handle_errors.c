@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   handle_errors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 09:24:39 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/01/28 09:53:14 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/01/28 09:53:16 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "cub3d.h"
 
-# include "includes.h"
-# include "libft.h"
-
-/*
-** Prototypes
-*/
-int		check_args(char *map_path, char *option);
-void	ft_puterror(char *str);
-#endif
+void	ft_puterror(char *str)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	ft_putstr_fd(str, STDERR_FILENO);
+}

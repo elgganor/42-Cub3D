@@ -8,7 +8,9 @@ LIB_MAKE=-L./lib/libft -lft -L./lib/minilibx -lmlx -framework OpenGL -framework 
 LIB=$(LIB_SRC)
 
 SRC_PATH=./src/
-SRCS=cub3d.c
+SRCS=cub3d.c \
+	check_args.c \
+	handle_errors.c
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 
 OBJ=$(SRC:.c=.o)
@@ -24,7 +26,7 @@ endif
 	@gcc $(FLAGS) $(INC) -o $(NAME) $(OBJ) $(LIB)
 
 %.o: %.c
-	@gcc $(FLAGS) $(INC) -o $(NAME) $(OBJ) $(LIB)
+	@gcc $(FLAGS) $(INC) -o $@ -c $<
 
 clean: $(OBJ)
 	@make $@ -C lib/libft
