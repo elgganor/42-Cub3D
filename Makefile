@@ -8,7 +8,7 @@ LIB_MAKE=-L./lib/libft -lft -L./lib/minilibx -lmlx -framework OpenGL -framework 
 LIB=$(LIB_SRC)
 
 SRC_PATH=./src/
-SRCS=
+SRCS=cub3d.c
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 
 OBJ=$(SRC:.c=.o)

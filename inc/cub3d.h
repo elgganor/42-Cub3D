@@ -10,4 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CUB3D_H
+# define CUB3E_H
 
+# include "includes.h"
+# include "libft.h"
+#endif

@@ -12,10 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <string.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
+# include "includes.h"
 # include "get_next_line.h"
 
 typedef unsigned char	t_uchar;
@@ -54,8 +51,8 @@ long			ft_atol(char *str);
 ** ==== linked_list ====
 */
 int				ft_lstsize(t_list *lst);
-void			ft_lstadd_front(t_list **alst, t_list *new);
-void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lstadd_front(t_list **alst, t_list *new_elt);
+void			ft_lstadd_back(t_list **alst, t_list *new_elt);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
