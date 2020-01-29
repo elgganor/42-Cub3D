@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 10:29:14 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/01/29 09:55:06 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static void	get_cub_data(char *line, t_cub *cub)
 void		read_map(char *map_path, t_cub *cub)
 {
 	int	fd;
-	int	type;
 	char *line;
 
 	if ((fd = open(map_path, O_RDONLY)) < 0)

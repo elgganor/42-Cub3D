@@ -12,15 +12,7 @@
 
 #include "cub3d.h"
 
-static void	free_path(char **path)
-{
-	int	len;
 
-	len = 0;
-	while (path[len])
-		free(path[len++]);
-	free(path);
-}
 
 int			check_args(char *map_path, char *option)
 {
@@ -38,7 +30,7 @@ int			check_args(char *map_path, char *option)
 			ft_puterror("Wrong extension for the map;\n");
 			return (EXIT_FAILURE);
 		}
-		free_path(path);
+		free_split(path);
 	}
 	if (option)
 	{

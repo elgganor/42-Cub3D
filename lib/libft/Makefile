@@ -58,7 +58,7 @@ STRING=string/ft_split.c \
 	string/ft_strrchr.c \
 	string/ft_strtrim.c \
 	string/ft_substr.c \
-	string/ft_strcmp.c 
+	string/ft_strcmp.c
 LINKED_LIST=linked_list/ft_lstadd_front_bonus.c \
 	linked_list/ft_lstadd_back_bonus.c \
 	linked_list/ft_lstdelone_bonus.c \

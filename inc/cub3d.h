@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 09:24:39 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/01/29 09:56:28 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ void	get_resolution(char *line, int *width, int *height);
 void	get_texture(char *line, char **str);
 void	get_color(char *line, int *color);
 void	get_map(char *line, char *map);
+void	free_split(char **str);
+int		ft_rgbtohex(int r, int g, int b);
 #endif

@@ -4,6 +4,7 @@ SO ./path_to_south_texture
 WE ./path_to_west_texture
 EA ./path_to_east_texture
 S ./path_to_sprite_texture
+
 F 12,15,241
 C 123,54,146
 

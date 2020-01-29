@@ -10,7 +10,11 @@ LIB=$(LIB_SRC)
 SRC_PATH=./src/
 SRCS=cub3d.c \
 	check_args.c \
-	handle_errors.c
+	handle_errors.c \
+	read_map.c \
+	get_cub_data.c \
+	free_functions.c \
+	get_color_handle.c
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 
 OBJ=$(SRC:.c=.o)
