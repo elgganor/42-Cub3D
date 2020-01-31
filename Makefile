@@ -5,7 +5,7 @@ FLAGS=-Wall -Wextra -Werror
 
 LIB_SRC=-L./lib/libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 LIB_MAKE=-L./lib/libft -lft -L./lib/minilibx -lmlx -framework OpenGL -framework AppKit
-LIB=$(LIB_SRC)
+LIB=$(LIB_MAKE)
 
 SRC_PATH=./src/
 SRCS=cub3d.c \
