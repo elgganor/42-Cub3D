@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:12:11 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 11:08:31 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,23 @@ typedef struct	s_cub
 	char	*we_texture;
 	char	*ea_texture;
 	char	*sp_texture;
-	
+
 	int		f_color;
 	int		c_color;
 
 	char	*layout;
 	char	dir;
 }				t_cub;
+
+typedef struct	s_player
+{
+	int	x_position;
+	int	y_position;
+}				t_player;
+
+typedef struct	s_vars
+{
+	int		map_started;
+	t_cub	*cub;
+}				t_vars;
 #endif

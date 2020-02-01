@@ -6,31 +6,11 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:16:09 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:43:46 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-t_cub		*cub_init(void)
-{
-	t_cub *cub;
-
-	if (!(cub = (t_cub *)malloc(sizeof(t_cub))))
-		return (NULL);
-	cub->width = 0;
-	cub->height = 0;
-	cub->no_texture = NULL;
-	cub->so_texture = NULL;
-	cub->we_texture = NULL;
-	cub->ea_texture = NULL;
-	cub->sp_texture = NULL;
-	cub->layout = NULL;
-	cub->f_color = 0x0;
-	cub->c_color = 0x0;
-	cub->dir = '0';
-	return (cub);
-}
 
 static void	get_cub_data(char *line, t_cub *cub)
 {
@@ -56,8 +36,8 @@ static void	get_cub_data(char *line, t_cub *cub)
 
 void		read_map(char *map_path, t_cub *cub)
 {
-	int	fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	if ((fd = open(map_path, O_RDONLY)) < 0)
 	{

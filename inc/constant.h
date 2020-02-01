@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   constant.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 09:53:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:43:57 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/02/01 11:10:00 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/02/01 11:12:06 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef CONSTANT_H
+# define CONSTANT_H
 
-void	ft_puterror(char *str)
-{
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	ft_putstr_fd(str, STDERR_FILENO);
-}
+# define CUB vars->cub
+# define MAP CUB->layout
+#endif

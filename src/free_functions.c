@@ -6,15 +6,15 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 08:57:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/29 08:57:36 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:44:22 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void free_split(char **str)
+void	free_split(char **str)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (str[len])

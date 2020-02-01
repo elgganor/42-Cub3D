@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:19:27 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:46:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	get_resolution(char *line, int *width, int *height)
 		i++;
 	while (line[i] && !ft_isdigit(line[i]))
 		i++;
-	*height =ft_atoi(line + i);
+	*height = ft_atoi(line + i);
 }
 
 void	get_texture(char *line, char **str)

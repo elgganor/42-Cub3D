@@ -1,19 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_errors.c                                    :+:      :+:    :+:   */
+/*   check_cub_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 09:53:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:43:57 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/02/01 11:01:41 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_puterror(char *str)
-{
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	ft_putstr_fd(str, STDERR_FILENO);
-}
