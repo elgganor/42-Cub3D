@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 09:24:31 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:18:17 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ static void	cub3d(char *map_path, char *option)
 	t_cub	*cub;
 
 	(void)option;
-	cub = map_init();
+	cub = cub_init();
 	read_map(map_path, cub);
+	ft_putstr(cub->layout);
+
+	while (1) ;
 }
 
 int			main(int ac, char **av)

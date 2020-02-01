@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/29 10:24:10 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:19:27 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,19 @@ void	get_texture(char *line, char **str)
 void	get_color(char *line, int *color)
 {
 	int		i;
-	int		hex_color;
 	char	**rgb;
 
 	i = 0;
-	hex_color = 0x0;
+	*color = 0x0;
 	while (line[i] && !ft_isdigit(line[i]))
 		i++;
 	rgb = ft_split(line + i, ',');
-	if (rgb[1] && rgb[2] && rgb[3])
-	{
-		// TODO: rgb to hex
-	}
-	*color = hex_color;
+	*color = get_color_handle(rgb);
 	free_split(rgb);
 }
 
-// void	get_map(char *line, char *map)
-// {
-
-// }
+void	get_map(char *line, char **layout)
+{
+	ft_strjoin_free(layout, line);
+	ft_strjoin_free(layout, "\n");
+}

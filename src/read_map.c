@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/29 09:55:06 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:16:09 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_cub *map_init(void)
+t_cub		*cub_init(void)
 {
 	t_cub *cub;
 
@@ -25,7 +25,7 @@ t_cub *map_init(void)
 	cub->we_texture = NULL;
 	cub->ea_texture = NULL;
 	cub->sp_texture = NULL;
-	cub->map = NULL;
+	cub->layout = NULL;
 	cub->f_color = 0x0;
 	cub->c_color = 0x0;
 	cub->dir = '0';
@@ -50,6 +50,8 @@ static void	get_cub_data(char *line, t_cub *cub)
 		get_color(line, &(cub->c_color));
 	else if (!ft_strncmp(line, "F ", 2))
 		get_color(line, &(cub->f_color));
+	else if (ft_isdigit(line[0]))
+		get_map(line, &(cub->layout));
 }
 
 void		read_map(char *map_path, t_cub *cub)
@@ -69,5 +71,7 @@ void		read_map(char *map_path, t_cub *cub)
 			get_cub_data(line, cub);
 			free(line);
 		}
+		get_cub_data(line, cub);
+		free(line);
 	}
 }

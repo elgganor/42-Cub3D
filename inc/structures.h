@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/01/28 10:38:16 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/01 10:12:11 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_cub
 	int		f_color;
 	int		c_color;
 
-	char	*map;
+	char	*layout;
 	char	dir;
 }				t_cub;
 #endif
