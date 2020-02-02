@@ -14,7 +14,9 @@ SRCS=cub3d.c \
 	read_map.c \
 	get_cub_data.c \
 	free_functions.c \
-	get_color_handle.c
+	get_color_handle.c \
+	init.c \
+	check_cub_data.c
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 
 OBJ=$(SRC:.c=.o)

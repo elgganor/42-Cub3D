@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:46:20 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/02 09:33:45 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,22 @@ void	get_color(char *line, int *color)
 	free_split(rgb);
 }
 
-void	get_map(char *line, char **layout)
+void	get_map(char *line, char **layout, char *direction)
 {
+	int	i;
+
 	ft_strjoin_free(layout, line);
 	ft_strjoin_free(layout, "\n");
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == 'N' || line[i] == 'W' || line[i] == 'S' || line[i] == 'E')
+		{
+			if (*direction == '0')
+				*direction = line[i];
+			else
+				exit_failure("The map already has a direction;\n");
+		}
+		i++;
+	}
 }

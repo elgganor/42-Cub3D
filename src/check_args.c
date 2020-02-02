@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:42:51 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:45:22 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/02 07:42:00 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			check_args(char *map_path, char *option)
 			path_len++;
 		if (ft_strncmp(path[path_len - 1], "cub", 4))
 		{
-			ft_puterror("Wrong extension for the map;\n");
+			exit_failure("Wrong extension for the map;\n");
 			return (EXIT_FAILURE);
 		}
 		free_split(path);
@@ -34,7 +34,7 @@ int			check_args(char *map_path, char *option)
 	{
 		if (ft_strncmp(option, "--save", 7))
 		{
-			ft_puterror("Wrong option;\n");
+			exit_failure("Wrong option;\n");
 			return (EXIT_FAILURE);
 		}
 	}

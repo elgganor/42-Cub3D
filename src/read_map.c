@@ -6,52 +6,57 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:43:46 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/02 09:31:05 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	get_cub_data(char *line, t_cub *cub)
+static void	get_cub_data(char *line, t_vars *vars)
 {
-	if (!ft_strncmp(line, "R ", 2))
-		get_resolution(line, &(cub->width), &(cub->height));
+	if ((vars->map_started == 1) && !ft_isdigit(line[0]))
+		exit_failure("The map has a wrong format;\n");
+	else if (!ft_strncmp(line, "R ", 2))
+		get_resolution(line, &(CUB->width), &(CUB->height));
 	else if (!ft_strncmp(line, "NO ", 3))
-		get_texture(line, &(cub->no_texture));
+		get_texture(line, &(CUB->no_texture));
 	else if (!ft_strncmp(line, "SO ", 3))
-		get_texture(line, &(cub->so_texture));
+		get_texture(line, &(CUB->so_texture));
 	else if (!ft_strncmp(line, "WE ", 3))
-		get_texture(line, &(cub->we_texture));
+		get_texture(line, &(CUB->we_texture));
 	else if (!ft_strncmp(line, "EA ", 3))
-		get_texture(line, &(cub->ea_texture));
+		get_texture(line, &(CUB->ea_texture));
 	else if (!ft_strncmp(line, "S ", 2))
-		get_texture(line, &(cub->sp_texture));
+		get_texture(line, &(CUB->sp_texture));
 	else if (!ft_strncmp(line, "C ", 2))
-		get_color(line, &(cub->c_color));
+		get_color(line, &(CUB->c_color));
 	else if (!ft_strncmp(line, "F ", 2))
-		get_color(line, &(cub->f_color));
+		get_color(line, &(CUB->f_color));
 	else if (ft_isdigit(line[0]))
-		get_map(line, &(cub->layout));
+	{
+		vars->map_started = 1;
+		get_map(line, &(MAP), &(CUB->dir));
+	}
 }
 
-void		read_map(char *map_path, t_cub *cub)
+void		read_map(char *map_path, t_vars *vars)
 {
 	int		fd;
 	char	*line;
 
 	if ((fd = open(map_path, O_RDONLY)) < 0)
 	{
-		ft_puterror("The file doesn't exist;\n");
+		exit_failure("The file doesn't exist;\n");
 		exit(EXIT_FAILURE);
 	}
 	else
 	{
 		while (get_next_line(fd, &line) > 0)
 		{
-			get_cub_data(line, cub);
+			get_cub_data(line, vars);
 			free(line);
 		}
-		get_cub_data(line, cub);
+		get_cub_data(line, vars);
 		free(line);
 	}
 }

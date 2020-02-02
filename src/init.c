@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 11:07:45 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/02 07:32:52 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_cub	*cub_init(void)
 	cub->dir = '0';
 	return (cub);
 }
+
 t_vars	*vars_init(void)
 {
 	t_vars	*vars;
@@ -38,5 +39,6 @@ t_vars	*vars_init(void)
 	if (!(vars = (t_vars *)malloc(sizeof(t_vars))))
 		return (NULL);
 	vars->map_started = 0;
-	vars->cub = cub_init();
+	CUB = cub_init();
+	return (vars);
 }
