@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/02 09:48:45 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/05 08:13:52 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ static void	check_map(char *layout)
 	}
 }
 
-void		check_cub_data(t_cub *cub)
+void		check_cub_data(t_vars *vars)
 {
-	check_dimensions(&(cub->width), &(cub->height));
-	check_texture(cub->no_texture, "NO: ");
-	check_texture(cub->so_texture, "SO: ");
-	check_texture(cub->we_texture, "WE: ");
-	check_texture(cub->ea_texture, "EA: ");
-	check_texture(cub->sp_texture, "S : ");
-	check_map(cub->layout);
+	check_dimensions(&(WIN->width), &(WIN->height));
+	check_texture(CUB->no_texture, "NO: ");
+	check_texture(CUB->so_texture, "SO: ");
+	check_texture(CUB->we_texture, "WE: ");
+	check_texture(CUB->ea_texture, "EA: ");
+	check_texture(CUB->sp_texture, "S : ");
+	check_map(CUB->layout);
 }

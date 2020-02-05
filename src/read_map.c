@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/02 09:31:05 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/05 08:09:56 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	get_cub_data(char *line, t_vars *vars)
 	if ((vars->map_started == 1) && !ft_isdigit(line[0]))
 		exit_failure("The map has a wrong format;\n");
 	else if (!ft_strncmp(line, "R ", 2))
-		get_resolution(line, &(CUB->width), &(CUB->height));
+		get_resolution(line, &(WIN->width), &(WIN->height));
 	else if (!ft_strncmp(line, "NO ", 3))
 		get_texture(line, &(CUB->no_texture));
 	else if (!ft_strncmp(line, "SO ", 3))
