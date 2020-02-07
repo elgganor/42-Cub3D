@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/05 08:13:52 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/07 10:31:29 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_islayout_char(char c)
 	return (0);
 }
 
-static void	check_map(char *layout)
+static void	check_map(t_layout *layout)
 {
 	int	i;
 
@@ -51,12 +51,14 @@ static void	check_map(char *layout)
 	else
 	{
 		i = 0;
-		while (layout[i])
+		while (layout->map[i])
 		{
-			if (!ft_islayout_char(layout[i]))
+			if (!ft_islayout_char(layout->map[i]))
 				exit_failure("Wrong characters in the layout;\n");
 			i++;
 		}
+		if (layout->dir == '0')
+			exit_failure("No direction;\n");
 	}
 }
 
@@ -68,5 +70,5 @@ void		check_cub_data(t_vars *vars)
 	check_texture(CUB->we_texture, "WE: ");
 	check_texture(CUB->ea_texture, "EA: ");
 	check_texture(CUB->sp_texture, "S : ");
-	check_map(CUB->layout);
+	check_map(MAP);
 }

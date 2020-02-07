@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/05 08:09:56 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/07 11:31:44 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	get_cub_data(char *line, t_vars *vars)
 	else if (ft_isdigit(line[0]))
 	{
 		vars->map_started = 1;
-		get_map(line, &(MAP), &(CUB->dir));
+		get_map(line, MAP);
 	}
 }
 
@@ -58,5 +58,7 @@ void		read_map(char *map_path, t_vars *vars)
 		}
 		get_cub_data(line, vars);
 		free(line);
+		check_cub_data(vars);
+		get_layout(vars);
 	}
 }

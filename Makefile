@@ -8,15 +8,22 @@ LIB_MAKE=-L./lib/libft -lft -L./lib/minilibx -lmlx -framework OpenGL -framework 
 LIB=$(LIB_SRC)
 
 SRC_PATH=./src/
-SRCS=cub3d.c \
-	check_args.c \
-	handle_errors.c \
-	read_map.c \
-	get_cub_data.c \
-	free_functions.c \
-	get_color_handle.c \
-	init.c \
-	check_cub_data.c
+PARSING=parsing/check_args.c \
+	parsing/read_map.c \
+	parsing/get_cub_data.c \
+	parsing/get_color_handle.c \
+	parsing/check_cub_data.c \
+	parsing/get_layout.c
+MISC=misc/handle_errors.c \
+	misc/free_functions.c \
+	misc/init.c
+WINDOW=window/draw.c
+SRCS=$(PARSING) \
+	$(MISC) \
+	$(WINDOW) \
+	cub3d.c \
+	other.c
+
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 
 OBJ=$(SRC:.c=.o)
