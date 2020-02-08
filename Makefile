@@ -14,15 +14,14 @@ PARSING=parsing/check_args.c \
 	parsing/get_color_handle.c \
 	parsing/check_cub_data.c \
 	parsing/get_layout.c
-MISC=misc/handle_errors.c \
-	misc/free_functions.c \
-	misc/init.c
-WINDOW=window/draw.c
+UTILS=utils/handle_errors.c \
+	utils/free_functions.c \
+	utils/init.c
+ENGINE=engine/event_handler.c
 SRCS=$(PARSING) \
-	$(MISC) \
-	$(WINDOW) \
-	cub3d.c \
-	other.c
+	$(UTILS) \
+	$(ENGINE) \
+	cub3d.c
 
 SRC=$(addprefix $(SRC_PATH), $(SRCS))
 

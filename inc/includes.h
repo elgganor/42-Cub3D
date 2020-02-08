@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:48:03 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:48:05 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/08 07:01:35 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <time.h>
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/07 10:31:29 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/08 11:44:25 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,33 @@ static int	ft_islayout_char(char c)
 	return (0);
 }
 
-static void	check_map(t_layout *layout)
+static void	check_map(t_game *game)
 {
 	int	i;
 
-	if (!layout)
+	if (!game->layout)
 		exit_failure("Missing layout;\n");
 	else
 	{
 		i = 0;
-		while (layout->map[i])
+		while (game->layout->tmp_map[i])
 		{
-			if (!ft_islayout_char(layout->map[i]))
+			if (!ft_islayout_char(game->layout->tmp_map[i]))
 				exit_failure("Wrong characters in the layout;\n");
 			i++;
 		}
-		if (layout->dir == '0')
+		if (game->player->dir == '0')
 			exit_failure("No direction;\n");
 	}
 }
 
-void		check_cub_data(t_vars *vars)
+void		check_cub_data(t_game *game)
 {
-	check_dimensions(&(WIN->width), &(WIN->height));
-	check_texture(CUB->no_texture, "NO: ");
-	check_texture(CUB->so_texture, "SO: ");
-	check_texture(CUB->we_texture, "WE: ");
-	check_texture(CUB->ea_texture, "EA: ");
-	check_texture(CUB->sp_texture, "S : ");
-	check_map(MAP);
+	check_dimensions(&(game->window->width), &(game->window->height));
+	check_texture(game->no_texture, "NO: ");
+	check_texture(game->so_texture, "SO: ");
+	check_texture(game->we_texture, "WE: ");
+	check_texture(game->ea_texture, "EA: ");
+	check_texture(game->sp_texture, "S : ");
+	check_map(game);
 }

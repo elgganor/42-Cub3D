@@ -6,68 +6,60 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 10:57:34 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/07 12:57:25 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/08 12:03:49 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	ft_isdirection(char c)
-{
-	if (c == 'N' || c == 'W' || c == 'S' || c == 'E')
-		return (1);
-	return (0);
-}
-
-static int	*get_row(char *line, t_vars *vars, int row_nb)
+static int	*get_row(char *line, t_game *game, int row_nb)
 {
 	int		*row;
 	size_t	i;
 
-	if(!(row = (int *)malloc(sizeof(int) * MAP->nb_col)))
+	if (!(row = (int *)malloc(sizeof(int) * game->layout->nb_col)))
 		return (NULL);
 	i = 0;
-	while (i < MAP->nb_col)
+	while (i < game->layout->nb_col)
 	{
 		while (line[i])
 		{
-			if (!ft_isdigit(line[i]))
+			if (ft_isdirection(line[i]))
 			{
-				if (ft_isdirection(line[i]))
-				{
-					MAP->camera->y_pos = (float)i;
-					MAP->camera->x_pos = (float)row_nb;
-				}
+				game->player->pos_x = (float)i;
+				game->player->pos_y = (float)row_nb;
 				row[i] = 0;
 			}
 			else
 				row[i] = line[i] - '0';
 			i++;
 		}
-		while (i < MAP->nb_col)
+		while (i < game->layout->nb_col)
 			row[i++] = 0;
 	}
 	return (row);
 }
 
-void		get_layout(t_vars *vars)
+void		get_layout(t_game *game)
 {
-	char	**split_layout;
-	size_t	i;
+	char		**split_layout;
+	t_layout	*layout;
+	size_t		i;
 
-	split_layout = ft_split(MAP->map, '\n');
-	while (split_layout[MAP->nb_row])
+	layout = game->layout;
+	split_layout = ft_split(layout->tmp_map, '\n');
+	while (split_layout[layout->nb_row])
 	{
-		if (MAP->nb_col < ft_strlen(split_layout[MAP->nb_row]))
-			MAP->nb_col = ft_strlen(split_layout[MAP->nb_row]);
-		MAP->nb_row++;
+		if (layout->nb_col < ft_strlen(split_layout[layout->nb_row]))
+			layout->nb_col = ft_strlen(split_layout[layout->nb_row]);
+		layout->nb_row++;
 	}
-	if (!(MAP->layout = (int **)malloc(MAP->nb_row * sizeof(int *))))
+	if (!(layout->map = (int **)malloc(layout->nb_row * sizeof(int *))))
 		return ;
 	i = 0;
-	while (i < MAP->nb_row)
+	while (i < layout->nb_row)
 	{
-		MAP->layout[i] = get_row(split_layout[i], vars, i);
+		layout->map[i] = get_row(split_layout[i], game, i);
 		i++;
 	}
 	free_split(split_layout);

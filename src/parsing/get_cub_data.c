@@ -6,11 +6,18 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/07 11:03:58 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/08 11:37:23 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		ft_isdirection(char c)
+{
+	if (c == 'N' || c == 'W' || c == 'S' || c == 'E')
+		return (1);
+	return (0);
+}
 
 void	get_resolution(char *line, int *width, int *height)
 {
@@ -51,19 +58,19 @@ void	get_color(char *line, int *color)
 	free_split(rgb);
 }
 
-void	get_map(char *line, t_layout *layout)
+void	get_map(char *line, t_game *game)
 {
 	int	i;
 
-	ft_strjoin_free(&(layout->map), line);
-	ft_strjoin_free(&(layout->map), "\n");
+	ft_strjoin_free(&(game->layout->tmp_map), line);
+	ft_strjoin_free(&(game->layout->tmp_map), "\n");
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == 'N' || line[i] == 'W' || line[i] == 'S' || line[i] == 'E')
+		if (ft_isdirection(line[i]))
 		{
-			if (layout->dir == '0')
-				layout->dir = line[i];
+			if (game->player->dir == '0')
+				game->player->dir = line[i];
 			else
 				exit_failure("The map already has a direction;\n");
 		}
