@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 13:06:47 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/08 13:49:07 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void		exit_failure(char *error);
 
 int			key_press(int key_code, t_game *game);
 int			key_release(int key_code, t_game *game);
+int			main_loop(t_game *game);
 #endif

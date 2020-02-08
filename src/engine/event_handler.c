@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 09:15:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 12:49:34 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/08 13:49:26 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,12 @@ int	key_release(int key_code, t_game *game)
 		game->keys->left_arr = 0;
 	else if (key_code == RIGHT_ARR)
 		game->keys->right_arr = 0;
+	return (0);
+}
+
+int	main_loop(t_game *game)
+{
+	// Mouvement
+	// Raycasting
 	return (0);
 }
