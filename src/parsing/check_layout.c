@@ -33,15 +33,15 @@ static void print_map(int **map, int nb_row, int nb_col)
 
 void	flood_fill(int **map, int pos_x, int pos_y, int nb_row, int nb_col)
 {
-	if (map[pos_y][pos_x] == 1
+	if (pos_y >= nb_row || pos_y < 0)
+		exit_failure("The map is not close;\n");
+	else if (pos_x >= nb_col || pos_x < 0)
+		exit_failure("The map is not close;\n");
+	else if (map[pos_y][pos_x] == 1
 		|| map[pos_y][pos_x] == 2
 		|| map[pos_y][pos_x] == 9
 		|| map[pos_y][pos_x] != 0)
 		return ;
-	else if (pos_y >= nb_row || pos_y < 0)
-		exit_failure("The map is not close;\n");
-	else if (pos_x >= nb_col || pos_x < 0)
-		exit_failure("The map is not close;\n");
 	else
 	{
 		map[pos_y][pos_x] = 9;
