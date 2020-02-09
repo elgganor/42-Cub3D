@@ -13,11 +13,13 @@ PARSING=parsing/check_args.c \
 	parsing/get_cub_data.c \
 	parsing/get_color_handle.c \
 	parsing/check_cub_data.c \
-	parsing/get_layout.c
+	parsing/get_layout.c \
+	parsing/check_layout.c
 UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
 	utils/init.c
-ENGINE=engine/event_handler.c
+# ENGINE=engine/event_handler.c
+	# engine/digital_differential_analyser.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \

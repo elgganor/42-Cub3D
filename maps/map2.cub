@@ -1,7 +1,5 @@
 R 1280 1080
 
-
-
 NO ./path_to_north_texture
 SO ./path_to_south_texture
 WE ./path_to_west_texture

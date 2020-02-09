@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 09:15:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 13:49:26 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/09 17:39:01 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	main_loop(t_game *game)
 {
 	// Mouvement
 	// Raycasting
+	(void)game;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 11:06:19 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/09 18:21:02 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static void	get_cub_data(char *line, t_game *game)
 
 void		read_map(char *map_path, t_game *game)
 {
-	int		fd;
-	char	*line;
+	int			fd;
+	char		*line;
 
 	if ((fd = open(map_path, O_RDONLY)) < 0)
 	{
@@ -60,5 +60,8 @@ void		read_map(char *map_path, t_game *game)
 		free(line);
 		check_cub_data(game);
 		get_layout(game);
+		flood_fill(game->layout->map, (int)game->player->pos_x,
+		(int)game->player->pos_x, game->layout->nb_row, game->layout->nb_col);
+		// ft_putstr("Everything is good;\n");
 	}
 }

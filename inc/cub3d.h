@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 13:49:07 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/09 17:31:54 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int			get_color_handle(char **rgb);
 void		get_layout(t_game *game);
 void		get_map(char *line, t_game *game);
 int			ft_isdirection(char c);
+void		flood_fill(int **map, int pos_x, int pos_y, int nb_row, int nb_col);
 
 int			check_args(char *map_path, char *option);
 void		check_cub_data(t_game *game);
