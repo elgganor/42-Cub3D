@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/10 08:52:35 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 12:41:21 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	get_cub_data(char *line, t_game *game)
 	if ((game->map_started == 1) && !ft_isrow(line))
 		exit_failure("The map has a wrong format 1;\n");
 	else if (!ft_strncmp(line, "R ", 2))
-		get_resolution(line, &(game->window->width), &(game->window->height));
+		get_resolution(line, &(game->window->resolution.x),
+		&(game->window->resolution.y));
 	else if (!ft_strncmp(line, "NO ", 3))
 		get_texture(line, &(game->no_texture));
 	else if (!ft_strncmp(line, "SO ", 3))

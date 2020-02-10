@@ -6,12 +6,24 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 12:46:01 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 12:53:01 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
+
+typedef struct	s_couple_f
+{
+	float	x;
+	float	y;
+}				t_couple_f;
+
+typedef struct	s_couple_i
+{
+	int	x;
+	int	y;
+}				t_couple_i;
 
 typedef struct	s_keys
 {
@@ -26,31 +38,24 @@ typedef struct	s_keys
 
 typedef struct	s_player
 {
-	float	pos_x;
-	float	pos_y;
-
-	float	dir_x;
-	float	dir_y;
-
-	char	dir;
+	t_couple_f	position;
+	t_couple_f	direction;
+	char		dir;
 }				t_player;
 
 typedef struct	s_layout
 {
-	char	*tmp_map;
-	int		**map;
-
-	size_t	nb_col;
-	size_t	nb_row;
+	char		*tmp_map;
+	int			**map;
+	t_couple_i	size;
 }				t_layout;
 
 typedef struct	s_window
 {
-	int		height;
-	int		width;
+	t_couple_i	resolution;
 
-	void	*mlx_ptr;
-	void	*win_ptr;
+	void		*mlx_ptr;
+	void		*win_ptr;
 }				t_window;
 
 typedef struct	s_game
