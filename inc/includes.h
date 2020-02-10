@@ -20,5 +20,6 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <time.h>
+# include <math.h>
 
 #endif

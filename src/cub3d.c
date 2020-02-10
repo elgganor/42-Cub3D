@@ -12,34 +12,33 @@
 
 #include "cub3d.h"
 
-// static void	game_start(t_game *game, char *option)
-// {
-// 	t_window *win;
+static void	game_start(t_game *game, char *option)
+{
+	t_window *win;
 
-// 	win = game->window;
-// 	win->mlx_ptr = mlx_init();
-// 	win->win_ptr = mlx_new_window(win->mlx_ptr,
-// 								win->resolution.x, win->resolution.y, "CUB3D");
-// 	if (option)
-// 	{
-// 		// take_screenshot()
-// 	}
-// 	// mlx_hook(win->win_ptr, KEY_PRESS, 0, &(key_press), game);
-// 	// mlx_hook(win->win_ptr, KEY_RELEASE, 0, &(key_release), game);
-// 	// mlx_loop_hook(win->win_ptr, &(main_loop), game);
-
+	win = game->window;
+	win->mlx_ptr = mlx_init();
+	win->win_ptr = mlx_new_window(win->mlx_ptr,
+								win->resolution.x, win->resolution.y, "CUB3D");
+	if (option)
+	{
+		// take_screenshot()
+	}
+	// mlx_hook(win->win_ptr, KEY_PRESS, 0, &(key_press), game);
+	// mlx_hook(win->win_ptr, KEY_RELEASE, 0, &(key_release), game);
+	// mlx_loop_hook(win->win_ptr, &(main_loop), game);
+	raycasting();
 	
-// 	mlx_loop(win->mlx_ptr);
-// }
+	mlx_loop(win->mlx_ptr);
+}
 
 static void	cub3d(char *map_path, char *option)
 {
 	t_game *game;
 
-	(void)option;
 	game = game_struct_init();
 	read_map(map_path, game);
-	// game_start(game, option);
+	game_start(game, option);
 }
 
 int			main(int ac, char **av)
