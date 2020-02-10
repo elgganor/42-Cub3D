@@ -5,7 +5,7 @@ FLAGS=-Wall -Wextra -Werror
 
 LIB_SRC=-L./lib/libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 LIB_MAKE=-L./lib/libft -lft -L./lib/minilibx -lmlx -framework OpenGL -framework AppKit
-LIB=$(LIB_MAKE)
+LIB=$(LIB_SRC)
 
 SRC_PATH=./src/
 PARSING=parsing/check_args.c \
@@ -17,7 +17,8 @@ PARSING=parsing/check_args.c \
 	parsing/check_layout.c
 UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
-	utils/init.c
+	utils/init.c \
+	utils/print_map.c
 # ENGINE=engine/event_handler.c
 	# engine/digital_differential_analyser.c
 SRCS=$(PARSING) \

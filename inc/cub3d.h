@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/09 17:31:54 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 09:04:13 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 /*
 ** ===== Prototypes =====
 */
+void		print_map(int **map, int nb_row, int nb_col);
+
 t_player	*player_struct_init(void);
 t_layout	*layout_struct_init(void);
 t_window	*window_struct_init(void);
@@ -36,7 +38,9 @@ int			get_color_handle(char **rgb);
 void		get_layout(t_game *game);
 void		get_map(char *line, t_game *game);
 int			ft_isdirection(char c);
-void		flood_fill(int **map, int pos_x, int pos_y, int nb_row, int nb_col);
+void		flood_fill(t_layout layout, int pos_x, int pos_y,
+			int target, int nb);
+void		check_layout(t_layout *layout, t_player *player);
 
 int			check_args(char *map_path, char *option);
 void		check_cub_data(t_game *game);

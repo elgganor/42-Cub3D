@@ -6,16 +6,32 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/09 18:21:02 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 08:52:35 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static int	ft_isrow(char *row)
+{
+	int	i;
+
+	i = 0;
+	if (row[0] == '\0')
+		return (0);
+	while (row[i])
+	{
+		if (!ft_isdigit(row[i]) && !ft_isdirection(row[i]) && row[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 static void	get_cub_data(char *line, t_game *game)
 {
-	if ((game->map_started == 1) && !ft_isdigit(line[0]))
-		exit_failure("The map has a wrong format;\n");
+	if ((game->map_started == 1) && !ft_isrow(line))
+		exit_failure("The map has a wrong format 1;\n");
 	else if (!ft_strncmp(line, "R ", 2))
 		get_resolution(line, &(game->window->width), &(game->window->height));
 	else if (!ft_strncmp(line, "NO ", 3))
@@ -32,7 +48,7 @@ static void	get_cub_data(char *line, t_game *game)
 		get_color(line, &(game->c_color));
 	else if (!ft_strncmp(line, "F ", 2))
 		get_color(line, &(game->f_color));
-	else if (ft_isdigit(line[0]))
+	else if (ft_isrow(line))
 	{
 		game->map_started = 1;
 		get_map(line, game);
@@ -60,8 +76,6 @@ void		read_map(char *map_path, t_game *game)
 		free(line);
 		check_cub_data(game);
 		get_layout(game);
-		flood_fill(game->layout->map, (int)game->player->pos_x,
-		(int)game->player->pos_x, game->layout->nb_row, game->layout->nb_col);
-		// ft_putstr("Everything is good;\n");
+		check_layout(game->layout, game->player);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/09 17:19:28 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 07:55:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_islayout_char(char c)
 {
 	if (c == 'N' || c == 'W' || c == 'S' || c == 'E')
 		return (1);
-	else if (c == '0' || c == '1' || c == '2' || c == '\n')
+	else if (c == '0' || c == '1' || c == '2' || c == '\n' || c == ' ')
 		return (1);
 	return (0);
 }

@@ -6,16 +6,16 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 12:45:45 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 07:26:15 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_keys 		*keys_struct_init(void)
+t_keys		*keys_struct_init()
 {
-	t_keys	*keys;
-
+	t_keys *keys;
+	
 	if (!(keys = (t_keys *)malloc(sizeof(t_keys))))
 		return (NULL);
 	keys->key_a = 0;

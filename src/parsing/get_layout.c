@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 10:57:34 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 12:03:49 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/10 07:56:17 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	*get_row(char *line, t_game *game, int row_nb)
 				row[i] = 0;
 			}
 			else
-				row[i] = line[i] - '0';
+				row[i] = ft_isdigit(line[i]) ? line[i] - '0' : 0;
 			i++;
 		}
 		while (i < game->layout->nb_col)
