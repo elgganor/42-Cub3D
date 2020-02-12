@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 10:07:54 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/12 14:13:59 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ t_player	*player_struct_init(void)
 	player->dir_y = 0;
 	player->mov_speed = 0.5;
 	player->rot_speed = 0.5;
+	player->plan_x = 0.58;
+	player->plan_y = 0;
 	player->dir = '0';
 	return (player);
 }

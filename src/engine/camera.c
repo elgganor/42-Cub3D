@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:27:50 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 13:27:58 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/12 13:32:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 
 void	rotate_left(t_player *player)
 {
-	float	oldDirX;
-	float	oldPlanX;
+	float	old_dir_x;
+	float	old_plan_x;
 
-	oldDirX = player->dir_x;
+	old_dir_x = player->dir_x;
 	player->dir_x = cos(-(player->rot_speed)) * player->dir_x -
 					sin(-(player->rot_speed)) * player->dir_y;
-	player->dir_y = sin(-(player->rot_speed)) * oldDirX +
+	player->dir_y = sin(-(player->rot_speed)) * old_dir_x +
 					cos(-(player->rot_speed)) * player->dir_y;
-	oldPlanX = player->plan_x;
+	old_plan_x = player->plan_x;
 	player->plan_x = cos(-(player->rot_speed)) * player->plan_x -
-					 sin(-(player->rot_speed)) * player->plan_y;
-	player->plan_y = sin(-(player->rot_speed)) * oldPlanX +
-					 cos(-(player->rot_speed)) * player->plan_y;
+					sin(-(player->rot_speed)) * player->plan_y;
+	player->plan_y = sin(-(player->rot_speed)) * old_plan_x +
+					cos(-(player->rot_speed)) * player->plan_y;
 }
 
 void	rotate_right(t_player *player)
 {
-	float oldDirX;
-	float oldPlanX;
+	float	old_dir_x;
+	float	old_plan_x;
 
-	oldDirX = player->dir_x;
+	old_dir_x = player->dir_x;
 	player->dir_x = cos(player->rot_speed) * player->dir_x -
 					sin(player->rot_speed) * player->dir_y;
-	player->dir_y = sin(player->rot_speed) * oldDirX +
+	player->dir_y = sin(player->rot_speed) * old_dir_x +
 					cos(player->rot_speed) * player->dir_y;
-	oldPlanX = player->plan_x;
+	old_plan_x = player->plan_x;
 	player->plan_x = cos(player->rot_speed) * player->plan_x -
-					 sin(player->rot_speed) * player->plan_y;
-	player->plan_y = sin(player->rot_speed) * oldPlanX +
-					 cos(player->rot_speed) * player->plan_y;
+					sin(player->rot_speed) * player->plan_y;
+	player->plan_y = sin(player->rot_speed) * old_plan_x +
+					cos(player->rot_speed) * player->plan_y;
 }
