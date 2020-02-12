@@ -6,35 +6,34 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 10:57:34 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/10 12:59:53 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/12 08:37:00 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	*get_row(char *line, t_game *game, int row_nb)
+static int	*get_row(char *line, t_game *game, int current_row)
 {
 	int	*row;
 	int	i;
 
-	if (!(row = (int *)malloc(sizeof(int) * game->layout->size.x)))
+	if (!(row = (int *)malloc(sizeof(int) * game->layout->nb_col)))
 		return (NULL);
 	i = 0;
-	while (i < game->layout->size.x)
+	while (i < game->layout->nb_col)
 	{
 		while (line[i])
 		{
 			if (ft_isdirection(line[i]))
 			{
-				game->player->position.x = (float)i;
-				game->player->position.y = (float)row_nb;
+				set_position(game->player, i, current_row);
 				row[i] = 0;
 			}
 			else
 				row[i] = ft_isdigit(line[i]) ? line[i] - '0' : 0;
 			i++;
 		}
-		while (i < game->layout->size.x)
+		while (i < game->layout->nb_col)
 			row[i++] = 0;
 	}
 	return (row);
@@ -48,16 +47,16 @@ void		get_layout(t_game *game)
 
 	layout = game->layout;
 	split_layout = ft_split(layout->tmp_map, '\n');
-	while (split_layout[(int)layout->size.y])
+	while (split_layout[(int)layout->nb_row])
 	{
-		if (layout->size.x < (int)ft_strlen(split_layout[layout->size.y]))
-			layout->size.x = (int)ft_strlen(split_layout[layout->size.y]);
-		layout->size.y++;
+		if (layout->nb_col < (int)ft_strlen(split_layout[layout->nb_row]))
+			layout->nb_col = (int)ft_strlen(split_layout[layout->nb_row]);
+		layout->nb_row++;
 	}
-	if (!(layout->map = (int **)malloc(layout->size.y * sizeof(int *))))
+	if (!(layout->map = (int **)malloc(layout->nb_row * sizeof(int *))))
 		return ;
 	i = 0;
-	while (i < layout->size.y)
+	while (i < layout->nb_row)
 	{
 		layout->map[i] = get_row(split_layout[i], game, i);
 		i++;

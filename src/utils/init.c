@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/10 13:00:09 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/12 10:07:54 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ t_player	*player_struct_init(void)
 
 	if (!(player = (t_player *)malloc(sizeof(t_player))))
 		return (NULL);
-	player->position.x = 0;
-	player->position.y = 0;
-	player->direction.x = 0;
-	player->direction.y = 0;
+	player->pos_x = 0.5;
+	player->pos_y = 0.5;
+	player->dir_x = 0;
+	player->dir_y = 0;
+	player->mov_speed = 0.5;
+	player->rot_speed = 0.5;
 	player->dir = '0';
 	return (player);
 }
@@ -50,8 +52,8 @@ t_layout	*layout_struct_init(void)
 		return (NULL);
 	layout->map = NULL;
 	layout->tmp_map = NULL;
-	layout->size.x = 0;
-	layout->size.y = 0;
+	layout->nb_col = 0;
+	layout->nb_row = 0;
 	return (layout);
 }
 
@@ -61,8 +63,8 @@ t_window	*window_struct_init(void)
 
 	if (!(window = (t_window *)malloc(sizeof(t_window))))
 		return (NULL);
-	window->resolution.x = 0;
-	window->resolution.y = 0;
+	window->width = 0;
+	window->height = 0;
 	window->mlx_ptr = NULL;
 	window->win_ptr = NULL;
 	return (window);

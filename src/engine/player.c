@@ -1,9 +1,47 @@
 #include "cub3d.h"
 
-// move_forward
+void set_position(t_player *player, float pos_x, float pos_y)
+{
+	player->pos_x += pos_x;
+	player->pos_y += pos_y;
+}
 
-// move_backward
+void	move_forward(t_layout *layout, t_player *player)
+{
+	if (layout->map[(int)(player->pos_y)]
+			[(int)(player->pos_x + player->dir_x * player->mov_speed)] == 0)
+		set_position(player, player->dir_x * player->mov_speed, 0);
+	if (layout->map[(int)(player->pos_y + player->dir_y * player->mov_speed)]
+		[(int)(player->pos_x)] == 0)
+		set_position(player, 0, player->dir_y * player->mov_speed);
+}
 
-// move_left
+void move_backward(t_layout *layout, t_player *player)
+{
+	if (layout->map[(int)(player->pos_y)]
+			[(int)(player->pos_x + player->dir_x * player->mov_speed)] == 0)
+		set_position(player, -(player->dir_x * player->mov_speed), 0);
+	if (layout->map[(int)(player->pos_y + player->dir_y * player->mov_speed)]
+			[(int)(player->pos_x)] == 0)
+		set_position(player, 0, -(player->dir_y * player->mov_speed));
+}
 
-// move_right
+void move_left(t_layout *layout, t_player *player)
+{
+	if (layout->map[(int)(player->pos_y)]
+			[(int)(player->pos_x + player->dir_x * player->mov_speed)] == 0)
+		set_position(player, -(player->dir_y * player->mov_speed), 0);
+	if (layout->map[(int)(player->pos_y + player->dir_y * player->mov_speed)]
+			[(int)(player->pos_x)] == 0)
+		set_position(player, 0, player->dir_x * player->mov_speed);
+}
+
+void move_right(t_layout *layout, t_player *player)
+{
+	if (layout->map[(int)(player->pos_y)]
+			[(int)(player->pos_x + player->dir_x * player->mov_speed)] == 0)
+		set_position(player, player->dir_y * player->mov_speed, 0);
+	if (layout->map[(int)(player->pos_y + player->dir_y * player->mov_speed)]
+			[(int)(player->pos_x)] == 0)
+		set_position(player, 0, -(player->dir_x * player->mov_speed));
+}

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/10 09:04:13 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/12 13:20:02 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,12 @@ void		exit_failure(char *error);
 int			key_press(int key_code, t_game *game);
 int			key_release(int key_code, t_game *game);
 int			main_loop(t_game *game);
+
+void		set_position(t_player *player, float pos_x, float pos_y);
+void		move_forward(t_layout *layout, t_player *player);
+void		move_backward(t_layout *layout, t_player *player);
+void		move_left(t_layout *layout, t_player *player);
+void		move_right(t_layout *layout, t_player *player);
+void		rotate_left(t_player *player);
+void		rotate_right(t_player *player);
 #endif

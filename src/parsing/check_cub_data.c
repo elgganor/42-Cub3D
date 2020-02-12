@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/10 12:43:06 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/12 08:23:19 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ static void	check_map(t_game *game)
 
 void		check_cub_data(t_game *game)
 {
-	check_dimensions(&(game->window->resolution.x),
-					&(game->window->resolution.y));
+	check_dimensions(&(game->window->width),
+					&(game->window->height));
 	check_texture(game->no_texture, "NO: ");
 	check_texture(game->so_texture, "SO: ");
 	check_texture(game->we_texture, "WE: ");
