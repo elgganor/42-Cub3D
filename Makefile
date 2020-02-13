@@ -19,8 +19,12 @@ UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
 	utils/init.c \
 	utils/print_map.c
-# ENGINE=engine/event_handler.c
-	# engine/digital_differential_analyser.c
+ENGINE=engine/camera.c \
+	engine/digital_differential_analyser.c \
+	engine/key_event_handler.c \
+	engine/player.c \
+	engine/raycasting.c \
+	engine/window.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \

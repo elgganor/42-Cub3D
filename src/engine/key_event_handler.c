@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 09:15:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 13:33:54 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/13 11:53:39 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,11 @@ void	key_manager(t_game *game)
 		rotate_left(game->player);
 	else if (game->keys->right_arr == 1)
 		rotate_right(game->player);
+}
+
+int		main_loop(t_game *game)
+{
+	key_manager(game);
+	raycasting(game, game->player, game->window, game->ray);
+	return (0);
 }

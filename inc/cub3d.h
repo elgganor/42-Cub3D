@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 13:20:02 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/13 11:43:48 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,8 @@ void		move_left(t_layout *layout, t_player *player);
 void		move_right(t_layout *layout, t_player *player);
 void		rotate_left(t_player *player);
 void		rotate_right(t_player *player);
+
+void		dda(t_layout *layout, t_player *player, t_ray *ray);
+void		raycasting(t_game *game, t_player *player, t_window *window, t_ray ray);
+void		draw_col(t_game *game, t_window *window, int line_height, int pos);
 #endif

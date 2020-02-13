@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 14:25:35 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/13 11:43:57 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,17 @@ typedef struct	s_window
 typedef struct	s_ray
 {
 	float	camera_x;
+	float	perp_wall_dist;
 	float	ray_x;
 	float	ray_y;
 	float	side_dist_x;
 	float	side_dist_y;
 	float	delta_dist_x;
 	float	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
 }				t_ray;
 
 typedef struct	s_game
