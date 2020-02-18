@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/13 11:43:57 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/18 10:33:48 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct	s_player
 {
 	float	pos_x;
 	float	pos_y;
+	int		map_x;
+	int		map_y;
 	float	dir_x;
 	float	dir_y;
 	float	plan_x;

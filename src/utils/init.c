@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 14:13:59 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/18 13:29:43 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ t_player	*player_struct_init(void)
 
 	if (!(player = (t_player *)malloc(sizeof(t_player))))
 		return (NULL);
-	player->pos_x = 0.5;
-	player->pos_y = 0.5;
+	player->pos_x = 0.;
+	player->pos_y = 0.;
 	player->dir_x = 0;
 	player->dir_y = 0;
 	player->mov_speed = 0.5;
