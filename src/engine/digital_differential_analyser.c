@@ -6,28 +6,11 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/19 09:53:59 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/19 12:40:26 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-static void	get_delta_dist(t_ray *ray)
-{
-	if (ray->ray_x == 0)
-		ray->delta_dist_y = 0;
-	else if (ray->ray_y == 0)
-		ray->delta_dist_y = 1;
-	else
-		ray->delta_dist_y = fabs(1 / ray->ray_x);
-	if (ray->ray_y == 0)
-		ray->delta_dist_x = 0;
-	else if (ray->ray_x == 0)
-		ray->delta_dist_x = 1;
-	else
-		ray->delta_dist_x = fabs(1 / ray->ray_y);
-	
-}
 
 static void get_step(t_player *player, t_ray *ray)
 {
@@ -71,10 +54,6 @@ static void get_side(t_player *player, t_ray *ray)
 
 void		dda(t_layout *layout, t_player *player, t_ray *ray)
 {
-	player->map_x = (int)player->pos_x;
-	player->map_y = (int)player->pos_y;
-	ray->hit = 0;
-	get_delta_dist(ray);
 	get_step(player, ray);
 	while (ray->hit == 0)
 	{
