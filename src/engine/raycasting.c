@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/19 10:05:33 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/19 10:30:56 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	raycasting(
 	x = 0;
 	while (x < window->width)
 	{
-		ray.camera_x = (2 * x) / (float)window->width - 1;
+		ray.camera_x = (2 * x) / (double)window->width - 1;
 		ray.ray_x = player->dir_x + player->plan_x * ray.camera_x;
 		ray.ray_y = player->dir_y + player->plan_y * ray.camera_x;
 
@@ -52,3 +52,4 @@ void	raycasting(
 		x++;
 	}
 }
+

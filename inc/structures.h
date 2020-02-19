@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/18 10:33:48 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/19 10:25:17 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ typedef struct	s_keys
 
 typedef struct	s_player
 {
-	float	pos_x;
-	float	pos_y;
+	double	pos_x;
+	double	pos_y;
 	int		map_x;
 	int		map_y;
-	float	dir_x;
-	float	dir_y;
-	float	plan_x;
-	float	plan_y;
+	double	dir_x;
+	double	dir_y;
+	double	plan_x;
+	double	plan_y;
 	char	dir;
-	float	mov_speed;
-	float	rot_speed;
+	double	mov_speed;
+	double	rot_speed;
 }				t_player;
 
 typedef struct	s_layout
@@ -57,14 +57,14 @@ typedef struct	s_window
 
 typedef struct	s_ray
 {
-	float	camera_x;
-	float	perp_wall_dist;
-	float	ray_x;
-	float	ray_y;
-	float	side_dist_x;
-	float	side_dist_y;
-	float	delta_dist_x;
-	float	delta_dist_y;
+	double	camera_x;
+	double	perp_wall_dist;
+	double	ray_x;
+	double	ray_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
 	int		step_x;
 	int		step_y;
 	int		hit;
