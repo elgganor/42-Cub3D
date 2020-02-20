@@ -18,7 +18,8 @@ PARSING=parsing/check_args.c \
 UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
 	utils/init.c \
-	utils/print_map.c
+	utils/print_map.c \
+	utils/set_position.c
 ENGINE=engine/camera.c \
 	engine/digital_differential_analyser.c \
 	engine/key_event_handler.c \

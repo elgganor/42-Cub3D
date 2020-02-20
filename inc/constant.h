@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 11:10:00 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/08 11:53:05 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/20 09:59:09 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@
 # define KEY_RELEASE 3
 # define BUTTON_PRESS 4
 # define BUTTON_RELEASE 5
+
+#ifndef M_PI
+# define M_PI 3.1415926535897932
+#endif
 
 #endif

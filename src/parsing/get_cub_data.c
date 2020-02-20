@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 08:45:56 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:12:12 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,7 @@ void	get_map(char *line, t_game *game)
 			if (game->player->dir == '0')
 			{
 				game->player->dir = line[i];
-				if (line[i] == 'N')
-					game->player->dir_y = -1.;
-				else if (line[i] == 'S')
-					game->player->dir_y = 1.;
-				else if (line[i] == 'W')
-					game->player->dir_x = -1.;
-				else if (line[i] == 'E')
-					game->player->dir_x = 1.;
+				init_player(game->player);
 			}
 			else
 				exit_failure("The map already has a direction;\n");

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/19 10:25:17 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/20 10:58:16 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct	s_player
 {
 	double	pos_x;
 	double	pos_y;
-	int		map_x;
-	int		map_y;
 	double	dir_x;
 	double	dir_y;
 	double	plan_x;
@@ -38,6 +36,26 @@ typedef struct	s_player
 	double	mov_speed;
 	double	rot_speed;
 }				t_player;
+
+typedef struct	s_ray
+{
+	int		x;
+	double	camera_x;
+	double	perp_wall_dist;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+}				t_ray;
 
 typedef struct	s_layout
 {
@@ -54,22 +72,6 @@ typedef struct	s_window
 	void	*mlx_ptr;
 	void	*win_ptr;
 }				t_window;
-
-typedef struct	s_ray
-{
-	double	camera_x;
-	double	perp_wall_dist;
-	double	ray_x;
-	double	ray_y;
-	double	side_dist_x;
-	double	side_dist_y;
-	double	delta_dist_x;
-	double	delta_dist_y;
-	int		step_x;
-	int		step_y;
-	int		hit;
-	int		side;
-}				t_ray;
 
 typedef struct	s_game
 {

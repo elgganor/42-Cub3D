@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/13 11:55:18 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/20 13:09:57 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ static void	game_start(t_game *game, char *option)
 	{
 		// take_screenshot()
 	}
-	// mlx_hook(win->win_ptr, KEY_PRESS, 0, &(key_press), game);
-	// mlx_hook(win->win_ptr, KEY_RELEASE, 0, &(key_release), game);
-	// mlx_loop_hook(win->win_ptr, &(main_loop), game);
-	raycasting(game, game->player, game->window, game->ray);
+	mlx_hook(win->win_ptr, KEY_PRESS, 1L << 0, key_press, game);
+	mlx_hook(win->win_ptr, KEY_RELEASE, 1L << 1, key_release, game);
+	mlx_loop_hook(win->mlx_ptr, main_loop, game);
 	mlx_loop(win->mlx_ptr);
 }
 

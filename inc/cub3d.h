@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/13 11:43:48 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:13:57 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int			key_release(int key_code, t_game *game);
 int			main_loop(t_game *game);
 
 void		set_position(t_player *player, float pos_x, float pos_y);
+void		init_player(t_player *player);
 void		move_forward(t_layout *layout, t_player *player);
 void		move_backward(t_layout *layout, t_player *player);
 void		move_left(t_layout *layout, t_player *player);
@@ -61,7 +62,7 @@ void		move_right(t_layout *layout, t_player *player);
 void		rotate_left(t_player *player);
 void		rotate_right(t_player *player);
 
-void		dda(t_layout *layout, t_player *player, t_ray *ray);
+void		dda(t_layout *layout, t_ray *ray);
 void		raycasting(t_game *game, t_player *player, t_window *window, t_ray ray);
-void		draw_col(t_game *game, t_window *window, int line_height, int pos);
+void		draw_col(t_game *game, t_window *window, t_ray ray);
 #endif

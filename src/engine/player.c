@@ -6,17 +6,11 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:27:59 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 13:31:39 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/20 14:07:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	set_position(t_player *player, float pos_x, float pos_y)
-{
-	player->pos_x += pos_x;
-	player->pos_y += pos_y;
-}
 
 void	move_forward(t_layout *layout, t_player *player)
 {
