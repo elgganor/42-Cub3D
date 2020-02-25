@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 08:03:39 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 12:44:35 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:20:08 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ void	draw_col(t_game *game, t_window *window, t_ray ray)
 	if (draw_end >= window->height)
 		draw_end = window->height - 1;
 	y = 0;
-	while (y < window->height)
+	while (y < draw_start)
+		mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y++, game->c_color);
+	while (draw_start <= y && y <= draw_end)
 	{
-		if (y < draw_start)
-			mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y, game->c_color);
-		else if (draw_start <= y && y <= draw_end)
-		{
-			if (ray.side == 0)
-				mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y, 0xffffff);
-			else
-				mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y, 0xbbbbbb);
-		}
-		else
-			mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y, game->f_color);
-		y++;
+		if (ray.side == 0)
+			mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y++, 0xffffff);
+		else if (ray.side == 1)
+			mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y++, 0xff0000);
+		else if (ray.side == 2)
+			mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y++, 0x00ff00);
+		else if (ray.side == 3)
+			mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y++, 0x0000ff);
 	}
+	while (y < window->height)
+		mlx_pixel_put(window->mlx_ptr, window->win_ptr, ray.x, y++, game->f_color);
 }

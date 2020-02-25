@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 12:45:51 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:10:11 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ static void	init_ray(t_ray *ray, t_player *player, t_window *window)
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
 	ray->line_height = 0;
+	get_step_and_side_dist(ray, player);
 }
 
 void	raycasting(t_game *game, t_player *player, t_window *window, t_ray ray)
@@ -93,11 +94,10 @@ void	raycasting(t_game *game, t_player *player, t_window *window, t_ray ray)
 	while (ray.x < window->width)
 	{
 		init_ray(&ray, player, window);
-		get_step_and_side_dist(&ray, player);
 		dda(game->layout, &ray);
-		if (ray.side == 0)
+		if (ray.side == 0 || ray.side == 1)
 			ray.perp_wall_dist = (ray.map_x - player->pos_x + (1 - ray.step_x) / 2) / ray.ray_dir_x;
-		else
+		else if (ray.side == 2 || ray.side == 3)
 			ray.perp_wall_dist = (ray.map_y - player->pos_y + (1 - ray.step_y) / 2) / ray.ray_dir_y;
 		ray.line_height = (int)(window->height / ray.perp_wall_dist);
 		draw_col(game, window, ray);

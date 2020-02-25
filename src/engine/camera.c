@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:27:50 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 14:22:03 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/25 12:10:24 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	rotate_right(t_player *player)
+void	rotate_left(t_player *player)
 {
 	float	old_dir_x;
 	float	old_plan_x;
@@ -29,7 +29,7 @@ void	rotate_right(t_player *player)
 					cos(-(player->rot_speed)) * player->plan_y;
 }
 
-void	rotate_left(t_player *player)
+void	rotate_right(t_player *player)
 {
 	float	old_dir_x;
 	float	old_plan_x;

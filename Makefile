@@ -22,13 +22,16 @@ UTILS=utils/handle_errors.c \
 	utils/set_position.c
 ENGINE=engine/camera.c \
 	engine/digital_differential_analyser.c \
-	engine/key_event_handler.c \
 	engine/player.c \
-	engine/raycasting.c \
-	engine/window.c
+	engine/raycasting.c
+EVENT=event_manager/key_event_handler.c \
+	event_manager/main_loop.c
+WINDOW=window/window.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \
+	$(EVENT) \
+	$(WINDOW) \
 	cub3d.c
 
 SRC=$(addprefix $(SRC_PATH), $(SRCS))

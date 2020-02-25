@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 10:58:16 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/25 17:40:38 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,15 @@ typedef struct	s_window
 	void	*win_ptr;
 }				t_window;
 
+typedef struct	s_images
+{
+	void	*img_ptr;
+	void	*img_data;
+	int		bpp;
+	int		size_line;
+	int		endian;
+}				t_images;
+
 typedef struct	s_game
 {
 	int			map_started;
@@ -83,10 +92,14 @@ typedef struct	s_game
 	t_keys		*keys;
 	t_ray		ray;
 
-	char		*no_texture;
-	char		*so_texture;
-	char		*we_texture;
-	char		*ea_texture;
+	char		*no_texture_path;
+	t_images	*no_texture;
+	char		*so_texture_path;
+	t_images	*so_texturee;
+	char		*we_texture_path;
+	t_images	*we_texture;
+	char		*ea_texture_path;
+	t_images	*ea_texture;
 	char		*sp_texture;
 
 	int			c_color;
