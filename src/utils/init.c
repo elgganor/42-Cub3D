@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 14:33:35 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 09:51:47 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,19 @@ t_game		*game_struct_init(void)
 	if (!(game = (t_game *)malloc(sizeof(t_game))))
 		return (NULL);
 	game->map_started = 0;
-	game->no_texture = NULL;
-	game->so_texture = NULL;
-	game->we_texture = NULL;
-	game->ea_texture = NULL;
-	game->sp_texture = NULL;
 	game->c_color = 0;
 	game->f_color = 0;
-	game->player = player_struct_init();
-	game->layout = layout_struct_init();
-	game->window = window_struct_init();
-	game->keys = keys_struct_init();
+	if (!(game->no_texture = image_struct_init())
+		|| !(game->so_texture = image_struct_init())
+		|| !(game->we_texture = image_struct_init())
+		|| !(game->ea_texture = image_struct_init())
+		|| !(game->image = image_struct_init()))
+		return (NULL);
+	game->sp_texture = image_struct_init();
+	if (!(game->player = player_struct_init())
+		|| !(game->layout = layout_struct_init())
+		|| !(game->window = window_struct_init())
+		|| !(game->keys = keys_struct_init()))
+		return (NULL);
 	return (game);
 }

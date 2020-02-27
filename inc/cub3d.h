@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/25 12:36:49 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 12:15:43 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ t_layout	*layout_struct_init(void);
 t_window	*window_struct_init(void);
 t_game		*game_struct_init(void);
 t_keys		*keys_struct_init(void);
+t_image		*image_struct_init(void);
 
 void		read_map(char *map_path, t_game *game);
 void		get_resolution(char *line, int *width, int *height);
-void		get_texture(char *line, char **str);
+void		get_texture_path(char *line, t_image *texture);
 void		get_color(char *line, int *color);
 int			get_color_handle(char **rgb);
 void		get_layout(t_game *game);
@@ -41,6 +42,7 @@ int			ft_isdirection(char c);
 void		flood_fill(t_layout layout, int pos_x, int pos_y,
 			int target, int nb);
 void		check_layout(t_layout *layout, t_player *player);
+void		get_texture(t_game *game);
 
 int			check_args(char *map_path, char *option);
 void		check_cub_data(t_game *game);

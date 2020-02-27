@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cub_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 08:23:19 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 07:58:51 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 static void	check_dimensions(int *width, int *height)
 {
-	if (*width <= 0 || *height <= 0)
-		exit_failure("The map cannot have a negative or null width/height;\n");
+	if (*width < 480)
+		*width = 480;
+	if (*height < 320)
+		*height = 320;
 	if (*width > MAX_WIDTH)
 		*width = MAX_WIDTH;
 	if (*height > MAX_HEIGHT)
@@ -24,6 +26,9 @@ static void	check_dimensions(int *width, int *height)
 
 static void	check_texture(char *texture_path, char *texture)
 {
+	char	**path;
+	int		len;
+
 	if (!texture_path)
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
@@ -31,6 +36,13 @@ static void	check_texture(char *texture_path, char *texture)
 		ft_putstr_fd("Missing texture;\n", STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
+	len = 0;
+	path = ft_split(texture_path, '.');
+	while (path[len])
+		len++;
+	if (ft_strcmp(path[len - 1], "xpm"))
+		exit_failure("Wrong extension for xpm file;\n");
+	free_split(path);
 }
 
 static int	ft_islayout_char(char c)
@@ -66,10 +78,10 @@ void		check_cub_data(t_game *game)
 {
 	check_dimensions(&(game->window->width),
 					&(game->window->height));
-	check_texture(game->no_texture, "NO: ");
-	check_texture(game->so_texture, "SO: ");
-	check_texture(game->we_texture, "WE: ");
-	check_texture(game->ea_texture, "EA: ");
-	check_texture(game->sp_texture, "S : ");
+	check_texture(game->no_texture->path, "NO: ");
+	check_texture(game->so_texture->path, "SO: ");
+	check_texture(game->we_texture->path, "WE: ");
+	check_texture(game->ea_texture->path, "EA: ");
+	check_texture(game->sp_texture->path, "S : ");
 	check_map(game);
 }

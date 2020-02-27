@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/25 17:40:38 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 11:17:39 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,17 @@ typedef struct	s_window
 	void	*win_ptr;
 }				t_window;
 
-typedef struct	s_images
+typedef struct	s_image
 {
 	void	*img_ptr;
-	void	*img_data;
+	char	*img_data;
+	char	*path;
 	int		bpp;
 	int		size_line;
 	int		endian;
-}				t_images;
+	int		width;
+	int		height;
+}				t_image;
 
 typedef struct	s_game
 {
@@ -91,16 +94,13 @@ typedef struct	s_game
 	t_window	*window;
 	t_keys		*keys;
 	t_ray		ray;
+	t_image		*image;
 
-	char		*no_texture_path;
-	t_images	*no_texture;
-	char		*so_texture_path;
-	t_images	*so_texturee;
-	char		*we_texture_path;
-	t_images	*we_texture;
-	char		*ea_texture_path;
-	t_images	*ea_texture;
-	char		*sp_texture;
+	t_image		*no_texture;
+	t_image		*so_texture;
+	t_image		*we_texture;
+	t_image		*ea_texture;
+	t_image		*sp_texture;
 
 	int			c_color;
 	int			f_color;

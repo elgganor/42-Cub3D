@@ -1,10 +1,10 @@
 R 1280 1080
 
-NO ./path_to_north_texture
-SO ./path_to_south_texture
-WE ./path_to_west_texture
-EA ./path_to_east_texture
-S ./path_to_sprite_texture
+NO ./textures/dirt.xpm
+SO ./textures/oak.xpm
+WE ./textures/sand.xpm
+EA ./textures/stone_block.xpm
+S ./textures/oak.xpm
 
 
 

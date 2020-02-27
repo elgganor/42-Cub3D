@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/25 09:55:00 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 08:23:02 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 static void	game_start(t_game *game, char *option)
 {
-	t_window *win;
-
-	win = game->window;
-	win->mlx_ptr = mlx_init();
-	win->win_ptr = mlx_new_window(win->mlx_ptr,
-								win->width, win->height, "CUB3D");
+	game->window->mlx_ptr = mlx_init();
+	game->window->win_ptr = mlx_new_window(game->window->mlx_ptr,
+								game->window->width, game->window->height, "CUB3D");
+	get_texture(game);
 	if (option)
 	{
 		// take_screenshot()
 	}
-	mlx_hook(win->win_ptr, KEY_PRESS, 1L << 0, key_press, game);
-	mlx_hook(win->win_ptr, KEY_RELEASE, 1L << 1, key_release, game);
-	mlx_loop_hook(win->mlx_ptr, main_loop, game);
-	mlx_loop(win->mlx_ptr);
+	mlx_hook(game->window->win_ptr, KEY_PRESS, 1L << 0, key_press, game);
+	mlx_hook(game->window->win_ptr, KEY_RELEASE, 1L << 1, key_release, game);
+	mlx_loop_hook(game->window->mlx_ptr, main_loop, game);
+	mlx_loop(game->window->mlx_ptr);
 }
 
 static void	cub3d(char *map_path, char *option)
 {
 	t_game *game;
 
-	game = game_struct_init();
+	if (!(game = game_struct_init()))
+		exit_failure("Erreur d'initialisation\n");
 	read_map(map_path, game);
 	game_start(game, option);
 }

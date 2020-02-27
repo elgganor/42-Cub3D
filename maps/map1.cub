@@ -1,9 +1,9 @@
-R 480 320
-NO ./path_to_north_texture
-SO ./path_to_south_texture
-WE ./path_to_west_texture
-EA ./path_to_east_texture
-S ./path_to_sprite_texture
+R 490 330
+NO ./textures/dirt.xpm
+SO ./textures/oak.xpm
+WE ./textures/sand.xpm
+EA ./textures/stone_block.xpm
+S ./textures/oak.xpm
 
 F 243,249,210
 C 209,250,255

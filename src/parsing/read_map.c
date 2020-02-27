@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/12 08:23:19 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 08:01:54 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ static void	get_cub_data(char *line, t_game *game)
 		get_resolution(line, &(game->window->width),
 		&(game->window->height));
 	else if (!ft_strncmp(line, "NO ", 3))
-		get_texture(line, &(game->no_texture));
+		get_texture_path(line, game->no_texture);
 	else if (!ft_strncmp(line, "SO ", 3))
-		get_texture(line, &(game->so_texture));
+		get_texture_path(line, game->so_texture);
 	else if (!ft_strncmp(line, "WE ", 3))
-		get_texture(line, &(game->we_texture));
+		get_texture_path(line, game->we_texture);
 	else if (!ft_strncmp(line, "EA ", 3))
-		get_texture(line, &(game->ea_texture));
+		get_texture_path(line, game->ea_texture);
 	else if (!ft_strncmp(line, "S ", 2))
-		get_texture(line, &(game->sp_texture));
+		get_texture_path(line, game->sp_texture);
 	else if (!ft_strncmp(line, "C ", 2))
 		get_color(line, &(game->c_color));
 	else if (!ft_strncmp(line, "F ", 2))

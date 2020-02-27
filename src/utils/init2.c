@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constant.h                                         :+:      :+:    :+:   */
+/*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/01 11:10:00 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/27 07:59:40 by mohamed          ###   ########.fr       */
+/*   Created: 2020/02/26 08:52:12 by mohamed           #+#    #+#             */
+/*   Updated: 2020/02/27 07:42:42 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONSTANT_H
-# define CONSTANT_H
+#include "cub3d.h"
 
-# define MAX_WIDTH 1980
-# define MAX_HEIGHT 1080
+t_image	*image_struct_init(void)
+{
+	t_image *image;
 
-# define LEFT_ARR 123
-# define RIGHT_ARR 124
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_W 13
-# define KEY_ESC 53
-
-# define KEY_PRESS 2
-# define KEY_RELEASE 3
-# define BUTTON_PRESS 4
-# define BUTTON_RELEASE 5
-
-#endif
+	if (!(image = (t_image *)malloc(sizeof(t_image))))
+		return (NULL);
+	image->img_data = NULL;
+	image->img_ptr = NULL;
+	image->path = NULL;
+	image->bpp = 0;
+	image->endian = 0;
+	image->size_line = 0;
+	image->width = 0;
+	image->height = 0;
+	return (image);
+}

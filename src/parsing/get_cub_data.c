@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cub_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 14:12:12 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/27 09:48:42 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void	get_resolution(char *line, int *width, int *height)
 	*height = ft_atoi(line + i);
 }
 
-void	get_texture(char *line, char **str)
+void	get_texture_path(char *line, t_image *texture)
 {
 	char	**path;
 
 	path = ft_split(line, ' ');
 	if (path[1])
-		*str = ft_strdup(path[1]);
+		texture->path = ft_strdup(path[1]);
 	free_split(path);
 }
 

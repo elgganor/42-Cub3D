@@ -14,10 +14,12 @@ PARSING=parsing/check_args.c \
 	parsing/get_color_handle.c \
 	parsing/check_cub_data.c \
 	parsing/get_layout.c \
-	parsing/check_layout.c
+	parsing/check_layout.c \
+	parsing/get_textures.c
 UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
 	utils/init.c \
+	utils/init2.c \
 	utils/print_map.c \
 	utils/set_position.c
 ENGINE=engine/camera.c \
