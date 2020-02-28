@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 08:17:55 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/28 13:09:18 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void		rotate_right(t_player *player);
 void		dda(t_layout *layout, t_ray *ray);
 void		raycasting(t_game *game, t_player *player, t_window *window, t_ray ray);
 
-void		draw_col(t_game *game, t_window *window, t_ray ray);
+void		draw_col(t_game *game, t_window *window, t_ray *ray);
 void		pixel_put(t_image *image, int x, int y, int color);
-void		set_color_on_image(t_game *game, int start, int end, int color);
-void		set_texture_on_image(t_game *game, t_image *texture);
-void		texture_put(t_game *game, t_image *texture, int x, int y);
+void		set_color_on_image(t_game *game, t_ray *ray);
+void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray);
+void		texture_put(t_game *game, t_image *texture, t_ray *ray);
 #endif

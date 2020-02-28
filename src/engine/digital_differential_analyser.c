@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/25 12:09:06 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/28 11:16:10 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void get_wall_dist(t_ray *ray)
 	{
 		ray->side_dist_x += ray->delta_dist_x;
 		ray->map_x += ray->step_x;
-		if (ray->ray_dir_x < 0)
+		if (ray->step_x == -1)
 			ray->side = 0;
 		else
 			ray->side = 1;
@@ -28,7 +28,7 @@ static void get_wall_dist(t_ray *ray)
 	{
 		ray->side_dist_y += ray->delta_dist_y;
 		ray->map_y += ray->step_y;
-		if (ray->ray_dir_y < 0)
+		if (ray->step_y == -1)
 			ray->side = 2;
 		else
 			ray->side = 3;

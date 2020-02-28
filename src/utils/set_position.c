@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 14:14:31 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/20 14:38:12 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/28 12:13:23 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ void	init_player(t_player *player)
 	{
 		player->dir_x = 0.;
 		player->dir_y = -1.;
-		player->plan_x = -0.66;
+		player->plan_x = 0.66;
 		player->plan_y = 0.;
 	}
 	else if (player->dir == 'S')
 	{
 		player->dir_x = 0.;
 		player->dir_y = 1.;
-		player->plan_x = 0.66;
+		player->plan_x = -0.66;
 		player->plan_y = 0.;
 	}
 	else if (player->dir == 'W')

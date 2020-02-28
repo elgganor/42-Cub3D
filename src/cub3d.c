@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/27 08:23:02 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/02/28 12:31:49 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static void	game_start(t_game *game, char *option)
 {
 	game->window->mlx_ptr = mlx_init();
 	game->window->win_ptr = mlx_new_window(game->window->mlx_ptr,
-								game->window->width, game->window->height, "CUB3D");
+						game->window->width, game->window->height, "CUB3D");
 	get_texture(game);
+	game->image->img_ptr = mlx_new_image(game->window->mlx_ptr, game->window->width, game->window->height);
+	game->image->img_data = mlx_get_data_addr(game->image->img_ptr, &(game->image->bpp), &(game->image->size_line), &(game->image->endian));
 	if (option)
 	{
 		// take_screenshot()

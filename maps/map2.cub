@@ -1,10 +1,10 @@
 R 1280 1080
 
-NO ./textures/dirt.xpm
-SO ./textures/oak.xpm
-WE ./textures/sand.xpm
-EA ./textures/stone_block.xpm
-S ./textures/oak.xpm
+NO ./textures/bluestone.xpm
+SO ./textures/colorstone.xpm
+WE ./textures/greystone.xpm
+EA ./textures/redbrick.xpm
+S ./textures/redbrick.xpm
 
 
 

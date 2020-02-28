@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 08:09:24 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/02/28 09:33:37 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct	s_player
 typedef struct	s_ray
 {
 	int		x;
+	int		y;
 	double	camera_x;
 	double	perp_wall_dist;
 	double	ray_dir_x;
@@ -55,6 +56,11 @@ typedef struct	s_ray
 	int		hit;
 	int		side;
 	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	int		text_x;
+	int		text_y;
+	double	wall_x;
 }				t_ray;
 
 typedef struct	s_layout
@@ -83,11 +89,6 @@ typedef struct	s_image
 	int		endian;
 	int		width;
 	int		height;
-	int		draw_start;
-	int		draw_end;
-	int		text_x;
-	int		text_y;
-	double	wall_x;
 }				t_image;
 
 typedef struct	s_game
