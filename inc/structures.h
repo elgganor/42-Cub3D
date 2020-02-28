@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/27 11:17:39 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/02/28 08:09:24 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ typedef struct	s_image
 	int		endian;
 	int		width;
 	int		height;
+	int		draw_start;
+	int		draw_end;
+	int		text_x;
+	int		text_y;
+	double	wall_x;
 }				t_image;
 
 typedef struct	s_game

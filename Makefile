@@ -28,7 +28,9 @@ ENGINE=engine/camera.c \
 	engine/raycasting.c
 EVENT=event_manager/key_event_handler.c \
 	event_manager/main_loop.c
-WINDOW=window/window.c
+WINDOW=window/window.c \
+	window/draw.c \
+	window/texture.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \
