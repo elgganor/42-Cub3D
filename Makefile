@@ -28,14 +28,13 @@ ENGINE=engine/camera.c \
 	engine/raycasting.c
 EVENT=event_manager/key_event_handler.c \
 	event_manager/main_loop.c
-WINDOW=window/window.c \
-	window/draw.c \
-	window/texture.c
+RENDER=render/draw.c \
+	render/texture.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \
 	$(EVENT) \
-	$(WINDOW) \
+	$(RENDER) \
 	cub3d.c
 
 SRC=$(addprefix $(SRC_PATH), $(SRCS))

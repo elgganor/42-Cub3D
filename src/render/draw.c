@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 07:49:49 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 08:14:23 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:55:58 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	set_wall(t_game *game, t_ray *ray)
 {
-	int	text_x;
-	t_image *texture;
+	int		text_x;
+	t_image	*texture;
 
 	texture = game->we_texture;
 	if (ray->side == 1)
@@ -42,9 +42,11 @@ void		draw_col(t_game *game, t_window *window, t_ray *ray)
 	if (ray->draw_end >= window->height)
 		ray->draw_end = window->height - 1;
 	if (ray->side == 0 || ray->side == 1)
-		ray->wall_x = game->player->pos_y + ray->perp_wall_dist * ray->ray_dir_y;
+		ray->wall_x = game->player->pos_y +
+			ray->perp_wall_dist * ray->ray_dir_y;
 	else
-		ray->wall_x = game->player->pos_x + ray->perp_wall_dist * ray->ray_dir_x;
+		ray->wall_x = game->player->pos_x +
+			ray->perp_wall_dist * ray->ray_dir_x;
 	ray->wall_x -= floor(ray->wall_x);
 	set_wall(game, ray);
 	set_color_on_image(game, ray);

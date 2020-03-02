@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/08 09:15:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/25 12:34:44 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:47:53 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,4 @@ void	key_manager(t_game *game)
 		rotate_left(game->player);
 	else if (game->keys->right_arr == 1)
 		rotate_right(game->player);
-	// else if (game->keys->key_esc == 1)
-	// 	quitter le programme
 }

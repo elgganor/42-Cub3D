@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 11:16:10 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:55:09 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void get_wall_dist(t_ray *ray)
+static void	get_wall_dist(t_ray *ray)
 {
 	if (ray->side_dist_x < ray->side_dist_y)
 	{
@@ -22,7 +22,6 @@ static void get_wall_dist(t_ray *ray)
 			ray->side = 0;
 		else
 			ray->side = 1;
-		
 	}
 	else
 	{
@@ -35,7 +34,7 @@ static void get_wall_dist(t_ray *ray)
 	}
 }
 
-void	dda(t_layout *layout, t_ray *ray)
+void		dda(t_layout *layout, t_ray *ray)
 {
 	while (ray->hit == 0)
 	{

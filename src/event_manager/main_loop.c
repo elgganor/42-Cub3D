@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 12:32:49 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 12:27:52 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:55:23 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main_loop(t_game *game)
+int	main_loop(t_game *game)
 {
 	key_manager(game);
 	mlx_clear_window(game->window->mlx_ptr, game->window->win_ptr);

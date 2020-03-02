@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 08:52:12 by mohamed           #+#    #+#             */
-/*   Updated: 2020/02/27 07:42:42 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/02 10:57:37 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_image	*image_struct_init(void)
 {
-	t_image *image;
+	t_image	*image;
 
 	if (!(image = (t_image *)malloc(sizeof(t_image))))
 		return (NULL);

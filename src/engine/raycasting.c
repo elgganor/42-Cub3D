@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 13:00:37 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 10:55:39 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	get_delta_dist(t_ray *ray)
 		ray->delta_dist_y = 1;
 	else
 		ray->delta_dist_y = fabs(1 / ray->ray_dir_y);
-	
 }
 
 static void	get_step_and_side_dist(t_ray *ray, t_player *player)
@@ -39,7 +38,8 @@ static void	get_step_and_side_dist(t_ray *ray, t_player *player)
 	else
 	{
 		ray->step_x = 1;
-		ray->side_dist_x = (ray->map_x - player->pos_x + 1.0) * ray->delta_dist_x;
+		ray->side_dist_x = (ray->map_x - player->pos_x + 1.0)
+			* ray->delta_dist_x;
 	}
 	if (ray->ray_dir_y < 0)
 	{
@@ -49,7 +49,8 @@ static void	get_step_and_side_dist(t_ray *ray, t_player *player)
 	else
 	{
 		ray->step_y = 1;
-		ray->side_dist_y = (ray->map_y - player->pos_y + 1.0) * ray->delta_dist_y;
+		ray->side_dist_y = (ray->map_y - player->pos_y + 1.0)
+			* ray->delta_dist_y;
 	}
 }
 
@@ -67,7 +68,12 @@ static void	init_ray(t_ray *ray, t_player *player, t_window *window)
 	get_step_and_side_dist(ray, player);
 }
 
-void	raycasting(t_game *game, t_player *player, t_window *window, t_ray ray)
+void		raycasting(
+	t_game *game,
+	t_player *player,
+	t_window *window,
+	t_ray ray
+)
 {
 	ray.x = 0;
 	while (ray.x < window->width)
@@ -75,12 +81,15 @@ void	raycasting(t_game *game, t_player *player, t_window *window, t_ray ray)
 		init_ray(&ray, player, window);
 		dda(game->layout, &ray);
 		if (ray.side == 0 || ray.side == 1)
-			ray.perp_wall_dist = (ray.map_x - player->pos_x + (1 - ray.step_x) / 2) / ray.ray_dir_x;
+			ray.perp_wall_dist = (ray.map_x - player->pos_x
+				+ (1 - ray.step_x) / 2) / ray.ray_dir_x;
 		else if (ray.side == 2 || ray.side == 3)
-			ray.perp_wall_dist = (ray.map_y - player->pos_y + (1 - ray.step_y) / 2) / ray.ray_dir_y;
+			ray.perp_wall_dist = (ray.map_y - player->pos_y + (1 - ray.step_y)
+				/ 2) / ray.ray_dir_y;
 		ray.line_height = (int)(window->height / ray.perp_wall_dist);
 		draw_col(game, window, &ray);
 		ray.x++;
 	}
-	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr, game->image->img_ptr, 0, 0);
+	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,
+		game->image->img_ptr, 0, 0);
 }
