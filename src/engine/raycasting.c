@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 10:55:39 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:03:35 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ static void	init_ray(t_ray *ray, t_player *player, t_window *window)
 	ray->line_height = 0;
 	ray->y = 0;
 	get_step_and_side_dist(ray, player);
+	if (!(ray->z_buffer = (double *)malloc(sizeof(double) * window->width)))
+		exit_failure("Impossible to allocate memory for the z_buffer;\n");
+	ft_bzero(ray->z_buffer, sizeof(double) * window->width);
 }
 
 void		raycasting(
@@ -86,10 +89,12 @@ void		raycasting(
 		else if (ray.side == 2 || ray.side == 3)
 			ray.perp_wall_dist = (ray.map_y - player->pos_y + (1 - ray.step_y)
 				/ 2) / ray.ray_dir_y;
+		ray.z_buffer[ray.x] = ray.perp_wall_dist;
 		ray.line_height = (int)(window->height / ray.perp_wall_dist);
 		draw_col(game, window, &ray);
 		ray.x++;
 	}
 	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,
 		game->image->img_ptr, 0, 0);
+	free(ray.z_buffer);
 }

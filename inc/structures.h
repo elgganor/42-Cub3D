@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 09:33:37 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/02 11:01:33 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct	s_ray
 	int		text_x;
 	int		text_y;
 	double	wall_x;
+	double	*z_buffer;
 }				t_ray;
 
 typedef struct	s_layout
