@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/03 13:39:52 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/03 14:09:30 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void		dda(t_layout *layout, t_ray *ray)
 			&& layout->map[ray->map_y][ray->map_x] != 2)
 			ray->hit = 1;
 		else if (layout->map[ray->map_y][ray->map_y] == 2)
-			ray->hit = 2;
+			ray->hit = 2; //is_sprite
 	}
 }
