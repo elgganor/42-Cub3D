@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 10:55:09 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/03 13:39:52 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	get_wall_dist(t_ray *ray)
 
 void		dda(t_layout *layout, t_ray *ray)
 {
-	while (ray->hit == 0)
+	while (ray->hit != 1)
 	{
 		get_wall_dist(ray);
 		if (layout->map[ray->map_y][ray->map_x] >= 1
