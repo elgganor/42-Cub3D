@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 08:52:12 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/02 10:57:37 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:12:29 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,16 @@ t_image	*image_struct_init(void)
 	image->width = 0;
 	image->height = 0;
 	return (image);
+}
+
+t_sprites	*sprites_struct_init(t_sprite *sprite, double distance)
+{
+	t_sprites	*sprites;
+
+	if (!(sprites = (t_sprites *)malloc(sizeof(t_sprites))))
+		return (NULL);
+	sprites->sprite = sprite;
+	sprites->distance = distance;
+	sprites->next = NULL;
+	return (sprites);
 }

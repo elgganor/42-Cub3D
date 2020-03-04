@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 09:26:16 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:19:24 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ t_game		*game_struct_init(void)
 	game->map_started = 0;
 	game->c_color = 0;
 	game->f_color = 0;
+	game->sprites = NULL;
 	if (!(game->no_texture = image_struct_init())
 		|| !(game->so_texture = image_struct_init())
 		|| !(game->we_texture = image_struct_init())

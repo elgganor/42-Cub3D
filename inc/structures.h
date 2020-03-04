@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 11:01:33 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:12:03 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,20 @@ typedef struct	s_image
 	int		height;
 }				t_image;
 
+typedef struct	s_sprite
+{
+	int	x;
+	int	y;
+}				t_sprite;
+
+typedef struct	s_sprites
+{
+	t_sprite	*sprite;
+	double		distance;
+	t_sprites	*next;
+}				t_sprites;
+
+
 typedef struct	s_game
 {
 	int			map_started;
@@ -102,6 +116,7 @@ typedef struct	s_game
 	t_keys		*keys;
 	t_ray		ray;
 	t_image		*image;
+	t_sprites	*sprites;
 
 	t_image		*no_texture;
 	t_image		*so_texture;
