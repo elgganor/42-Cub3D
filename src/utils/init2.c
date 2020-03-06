@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 08:52:12 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/04 10:12:29 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/06 08:26:53 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,17 @@ t_sprites	*sprites_struct_init(t_sprite *sprite, double distance)
 	sprites->sprite = sprite;
 	sprites->distance = distance;
 	sprites->next = NULL;
+	sprites->draw_start_x = 0;
+	sprites->draw_end_x = 0;
+	sprites->draw_start_y = 0;
+	sprites->draw_end_y = 0;
+	sprites->sprite_x = 0;
+	sprites->sprite_y = 0;
+	sprites->inv_det = 0;
+	sprites->transform_x = 0;
+	sprites->transform_y = 0;
+	sprites->sprite_screen_x = 0;
+	sprites->sprite_height = 0;
+	sprites->sprite_width = 0;
 	return (sprites);
 }

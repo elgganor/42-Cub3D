@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 14:03:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 07:06:39 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 12:03:51 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,12 @@ static void	get_wall_dist(t_ray *ray)
 
 void		dda(t_game *game, t_layout *layout, t_ray *ray)
 {
+	(void)game;
 	while (ray->hit != 1)
 	{
 		get_wall_dist(ray);
 		if (layout->map[ray->map_y][ray->map_x] >= 1
 			&& layout->map[ray->map_y][ray->map_x] != 2)
 			ray->hit = 1;
-		else if (layout->map[ray->map_y][ray->map_y] == 2)
-			is_sprite(game, ray, layout);
 	}
 }

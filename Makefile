@@ -1,6 +1,7 @@
 NAME=Cub3D
 
 INC=-I./inc
+FLAGSD=-Wall -Wextra -Werror -fsanitize=address
 FLAGS=-Wall -Wextra -Werror
 
 LIB_SRC=-L./lib/libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit

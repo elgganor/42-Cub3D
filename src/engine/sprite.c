@@ -3,40 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:20:37 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/04 10:51:01 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/06 12:01:44 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	is_sprite(t_game *game, t_ray *ray, t_layout *layout)
+static void	sorted_insert(t_sprites **head_ref, t_sprites *new_node)
 {
-	t_sprite	sprite;
-	t_sprites	*sprites;
-	double		distance;
-	double		pos_x;
-	double		pos_y;
+	t_sprites *current;
 
-	if (game->sprites != NULL)
+	if ((*head_ref) == NULL || (*head_ref)->distance <= new_node->distance)
 	{
-		sprite.x = ray->map_x;
-		sprite.y = ray->map_y;
-		sprites = game->sprites;
-		while (sprites != NULL)
-		{
-			if (sprites->sprite->x == sprite.x && sprites->sprite->y == sprite.y)
-				return ;
-			sprites = sprites->next;
-		}
-		pos_x = game->player->pos_x;
-		pos_y = game->player->pos_y;
-		distance = (pos_x - sprite.x) * (pos_x - sprite.x)
-			+ (pos_y - sprite.y) * (pos_y - sprite.y);
-		sprites = sprites_struct_init(&sprite, distance);
-		sprites->next = game->sprites;
-		game->sprites = sprites;
+		new_node->next = (*head_ref);
+		(*head_ref) = new_node;
 	}
+	else
+	{
+		current = (*head_ref);
+		while (current->next != NULL && current->next->distance > new_node->distance)
+		{
+			current = current->next;
+		}
+		new_node->next = current->next;
+		current->next = new_node;
+	}
+}
+
+void	is_sprite(t_game *game, t_ray *ray)
+{
+	t_sprite *new;
+	t_sprites *new_sprite;
+	t_sprites *current;
+	double pos_x;
+	double pos_y;
+	double distance;
+
+	if (!(new = (t_sprite *)malloc(sizeof(t_sprite))))
+		return ;
+	new->x = ray->map_x;
+	new->y = ray->map_y;
+	current = game->sprites_head;
+	while (current != NULL)
+	{
+		if (current->sprite->x == new->x && current->sprite->y == new->y)
+			return ;
+		current = current->next;
+	}
+	pos_x = game->player->pos_x;
+	pos_y = game->player->pos_y;
+	distance = (pos_x - new->x) * (pos_x - new->x) + (pos_y - new->y) * (pos_y - new->y);
+	new_sprite = sprites_struct_init(new, distance);
+	sorted_insert(&(game->sprites_head), new_sprite);
 }

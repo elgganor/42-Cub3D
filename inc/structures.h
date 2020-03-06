@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/04 10:12:03 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/06 09:36:29 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,21 @@ typedef struct	s_sprite
 
 typedef struct	s_sprites
 {
-	t_sprite	*sprite;
-	double		distance;
-	t_sprites	*next;
+	t_sprite			*sprite;
+	double				distance;
+	int					draw_start_x;
+	int					draw_end_x;
+	int					draw_start_y;
+	int					draw_end_y;
+	double				sprite_x;
+	double				sprite_y;
+	double				inv_det;
+	double				transform_x;
+	double				transform_y;
+	int					sprite_screen_x;
+	int					sprite_height;
+	int					sprite_width;
+	struct s_sprites	*next;
 }				t_sprites;
 
 
@@ -116,7 +128,7 @@ typedef struct	s_game
 	t_keys		*keys;
 	t_ray		ray;
 	t_image		*image;
-	t_sprites	*sprites;
+	t_sprites	*sprites_head;
 
 	t_image		*no_texture;
 	t_image		*so_texture;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/04 10:24:11 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/06 12:48:44 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int			get_color_handle(char **rgb);
 void		get_layout(t_game *game);
 void		get_map(char *line, t_game *game);
 int			ft_isdirection(char c);
-void		flood_fill(t_layout layout, int pos_x, int pos_y,
-			int target, int nb);
 void		check_layout(t_layout *layout, t_player *player);
 void		get_texture(t_game *game);
 
@@ -74,4 +72,6 @@ void		pixel_put(t_image *image, int x, int y, int color);
 void		set_color_on_image(t_game *game, t_ray *ray);
 void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray);
 void		texture_put(t_game *game, t_image *texture, t_ray *ray);
+
+void		is_sprite(t_game *game, t_ray *ray);
 #endif
