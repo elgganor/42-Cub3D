@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map.c                                        :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 09:04:34 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 12:53:31 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 14:02:56 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,17 @@ void	print_map(int **map, int nb_row, int nb_col)
 		y++;
 	}
 	ft_putstr("\n\n");
+}
+
+void	print_sprites(t_sprites *head_ref)
+{
+	t_sprites *current;
+
+	current = head_ref;
+	while (current != NULL)
+	{
+		printf("%f\n", current->distance);
+		current = current->next;
+	}
+	printf("\n\n");
 }

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 12:48:44 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 14:38:34 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 ** ===== Prototypes =====
 */
 void		print_map(int **map, int nb_row, int nb_col);
+void print_sprites(t_sprites *head_ref);
 
 t_player	*player_struct_init(void);
 t_layout	*layout_struct_init(void);
@@ -74,4 +75,5 @@ void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray);
 void		texture_put(t_game *game, t_image *texture, t_ray *ray);
 
 void		is_sprite(t_game *game, t_ray *ray);
+void draw_sprites(t_game *game, t_player *player, t_window *window, t_ray *ray);
 #endif

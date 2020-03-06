@@ -21,16 +21,18 @@ UTILS=utils/handle_errors.c \
 	utils/free_functions.c \
 	utils/init.c \
 	utils/init2.c \
-	utils/print_map.c \
+	utils/display.c \
 	utils/set_position.c
 ENGINE=engine/camera.c \
 	engine/digital_differential_analyser.c \
 	engine/player.c \
-	engine/raycasting.c
+	engine/raycasting.c \
+	engine/sprite.c
 EVENT=event_manager/key_event_handler.c \
 	event_manager/main_loop.c
 RENDER=render/draw.c \
-	render/texture.c
+	render/texture.c \
+	render/sprite.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \

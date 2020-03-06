@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 12:02:56 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:54:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ t_game		*game_struct_init(void)
 	game->map_started = 0;
 	game->c_color = 0;
 	game->f_color = 0;
+	game->sprites_head = NULL;
 	if (!(game->no_texture = image_struct_init())
 		|| !(game->so_texture = image_struct_init())
 		|| !(game->we_texture = image_struct_init())
