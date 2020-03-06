@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/09 15:21:16 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 12:59:27 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:04:33 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ static void	flood_fill(t_layout layout, int pos_x, int pos_y)
 		exit_failure("The map is not close;\n");
 	else if (pos_x >= (int)layout.nb_col || pos_x < 0)
 		exit_failure("The map is not close;\n");
-	else if (layout.map[pos_y][pos_x] == 1 || layout.map[pos_y][pos_x] == 9 || layout.map[pos_y][pos_x] == 8 || (layout.map[pos_y][pos_x] != 0 && layout.map[pos_y][pos_x] != 2))
+	else if (layout.map[pos_y][pos_x] == 1 || layout.map[pos_y][pos_x] == 9
+		|| layout.map[pos_y][pos_x] == 8
+		|| (layout.map[pos_y][pos_x] != 0 && layout.map[pos_y][pos_x] != 2))
 		return ;
 	if (layout.map[pos_y][pos_x] == 0)
 		layout.map[pos_y][pos_x] = 9;

@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 08:52:12 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/06 08:26:53 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:02:08 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_image	*image_struct_init(void)
+t_image		*image_struct_init(void)
 {
 	t_image	*image;
 

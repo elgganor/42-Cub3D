@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:20:37 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/06 12:01:44 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/06 13:05:27 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	sorted_insert(t_sprites **head_ref, t_sprites *new_node)
 	else
 	{
 		current = (*head_ref);
-		while (current->next != NULL && current->next->distance > new_node->distance)
+		while (current->next != NULL
+			&& current->next->distance > new_node->distance)
 		{
 			current = current->next;
 		}
@@ -33,14 +34,12 @@ static void	sorted_insert(t_sprites **head_ref, t_sprites *new_node)
 	}
 }
 
-void	is_sprite(t_game *game, t_ray *ray)
+void		is_sprite(t_game *game, t_ray *ray)
 {
-	t_sprite *new;
-	t_sprites *new_sprite;
-	t_sprites *current;
-	double pos_x;
-	double pos_y;
-	double distance;
+	t_sprite	*new;
+	t_sprites	*new_sprite;
+	t_sprites	*current;
+	double		distance;
 
 	if (!(new = (t_sprite *)malloc(sizeof(t_sprite))))
 		return ;
@@ -49,13 +48,13 @@ void	is_sprite(t_game *game, t_ray *ray)
 	current = game->sprites_head;
 	while (current != NULL)
 	{
-		if (current->sprite->x == new->x && current->sprite->y == new->y)
+		if (current->sprite->x == new->x
+			&& current->sprite->y == new->y)
 			return ;
 		current = current->next;
 	}
-	pos_x = game->player->pos_x;
-	pos_y = game->player->pos_y;
-	distance = (pos_x - new->x) * (pos_x - new->x) + (pos_y - new->y) * (pos_y - new->y);
+	distance = (game->player->pos_x - new->x) * (game->player->pos_x - new->x)
+		+ (game->player->pos_y - new->y) * (game->player->pos_y - new->y);
 	new_sprite = sprites_struct_init(new, distance);
 	sorted_insert(&(game->sprites_head), new_sprite);
 }
