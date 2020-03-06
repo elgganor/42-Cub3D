@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/03 13:30:29 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:23:53 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void		raycasting(
 	while (ray.x < window->width)
 	{
 		init_ray(&ray, player, window);
-		dda(game->layout, &ray);
+		dda(game, game->layout, &ray);
 		if (ray.side == 0 || ray.side == 1)
 			ray.perp_wall_dist = (ray.map_x - player->pos_x
 				+ (1 - ray.step_x) / 2) / ray.ray_dir_x;

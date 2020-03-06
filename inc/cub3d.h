@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/28 13:09:18 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/04 10:24:11 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_window	*window_struct_init(void);
 t_game		*game_struct_init(void);
 t_keys		*keys_struct_init(void);
 t_image		*image_struct_init(void);
+t_sprites	*sprites_struct_init(t_sprite *sprite, double distance);
 
 void		read_map(char *map_path, t_game *game);
 void		get_resolution(char *line, int *width, int *height);
@@ -65,7 +66,7 @@ void		move_right(t_layout *layout, t_player *player);
 void		rotate_left(t_player *player);
 void		rotate_right(t_player *player);
 
-void		dda(t_layout *layout, t_ray *ray);
+void		dda(t_game *game, t_layout *layout, t_ray *ray);
 void		raycasting(t_game *game, t_player *player, t_window *window, t_ray ray);
 
 void		draw_col(t_game *game, t_window *window, t_ray *ray);
