@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:20:37 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/06 13:05:27 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/07 08:41:19 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,35 @@ void		is_sprite(t_game *game, t_ray *ray)
 		+ (game->player->pos_y - new->y) * (game->player->pos_y - new->y);
 	new_sprite = sprites_struct_init(new, distance);
 	sorted_insert(&(game->sprites_head), new_sprite);
+}
+
+void projection_sprite(
+	t_player *player,
+	t_window *window,
+	t_sprites *current)
+{
+	current->sprite_x = current->sprite->x - player->pos_x;
+	current->sprite_y = current->sprite->y - player->pos_y;
+	current->inv_det = 1.0 / (player->plan_x * player->dir_y - player->plan_y * player->dir_x);
+	current->transform_x = current->inv_det * (player->dir_y * current->sprite_x - player->dir_x * current->sprite_y);
+	current->transform_x = current->inv_det * (player->plan_x * current->sprite_y - player->plan_y * current->sprite_x);
+	current->sprite_screen_x = (int)((window->width / 2) * (1 + current->transform_x / current->transform_y));
+}
+
+void size_sprite(t_sprites *current, t_window *window)
+{
+	current->sprite_height = fabs((int)(window->height / current->transform_y));
+	current->draw_start_y = -current->sprite_height / 2 + window->height / 2;
+	if (current->draw_start_y < 0)
+		current->draw_start_y = 0;
+	current->draw_end_y = current->sprite_height / 2 + window->height / 2;
+	if (current->draw_end_y >= window->height)
+		current->draw_end_y = window->height - 1;
+	current->sprite_width = fabs((int)(window->height / current->transform_y));
+	current->draw_start_x = -current->sprite_width / 2 + current->sprite_screen_x;
+	if (current->draw_start_x < 0)
+		current->draw_start_x = 0;
+	current->draw_end_x = current->sprite_width / 2 + current->sprite_screen_x;
+	if (current->draw_end_x >= window->width)
+		current->draw_end_x = window->width - 1;
 }

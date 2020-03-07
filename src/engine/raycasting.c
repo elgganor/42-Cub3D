@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 14:22:30 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/07 08:56:53 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,5 @@ void		raycasting(
 		draw_sprites(game, player, window, &ray);
 	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,
 		game->image->img_ptr, 0, 0);
+	free(ray.z_buffer);
 }

@@ -3,30 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 13:30:15 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 14:39:52 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/07 13:30:35 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	projection_sprite(
-	t_player *player,
-	t_window *window,
-	t_sprites *current)
+void	sprite_put(t_game *game, t_sprites *sprite)
 {
-	current->sprite_x = current->sprite->x - player->pos_x;
-	current->sprite_y = current->sprite->y - player->pos_y;
-	current->inv_det = 1.0 / (player->plan_x * player->dir_y
-		- player->plan_y * player->dir_x);
-	current->transform_x = current->inv_det
-	* (player->dir_y * current->sprite_x - player->dir_x * current->sprite_y);
-	current->transform_x = current->inv_det
-	* (player->plan_x * current->sprite_y - player->plan_y * current->sprite_x);
-	current->sprite_screen_x = (int)((window->width / 2)
-	* (1 + current->transform_x / current->transform_y));
+
+}
+
+void set_sprite_on_image(t_game *game, t_sprites *current, t_window *window, t_ray *ray)
+{
+	int x;
+	int y;
+
+	x = current->draw_start_x;
+	while (x < current->draw_end_x)
+	{
+		if (current->transform_y > 0 && current->transform_y < ray->z_buffer[x])
+		{
+			y = current->draw_start_y;
+			while (y < current->draw_end_y)
+			{
+
+				y++;
+			}
+		}
+		x++;
+	}
 }
 
 void	draw_sprites(t_game *game, t_player *player, t_window *window, t_ray *ray)
@@ -38,9 +47,9 @@ void	draw_sprites(t_game *game, t_player *player, t_window *window, t_ray *ray)
 	while (current != NULL)
 	{
 		projection_sprite(player, window, current);
-		// TODO: size_sprite()
+		size_sprite(current, window);
+		set_sprite_on_image(game, current, window, ray);
 		current = current->next;
 	}
-
 	// free les sprites
 }
