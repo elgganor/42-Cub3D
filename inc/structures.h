@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 09:36:29 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/08 17:37:56 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ typedef struct	s_sprites
 	int					sprite_screen_x;
 	int					sprite_height;
 	int					sprite_width;
+	int					text_x;
+	int					text_y;
 	struct s_sprites	*next;
 }				t_sprites;
 

@@ -6,7 +6,7 @@
 /*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 13:30:15 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/07 13:30:35 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/08 17:48:12 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void set_sprite_on_image(t_game *game, t_sprites *current, t_window *window, t_r
 		if (current->transform_y > 0 && current->transform_y < ray->z_buffer[x])
 		{
 			y = current->draw_start_y;
+			// current->text_x = ;
 			while (y < current->draw_end_y)
 			{
 
