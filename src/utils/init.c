@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/06 13:54:20 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 10:56:51 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_player	*player_struct_init(void)
 	player->pos_y = 0.5;
 	player->dir_x = 0.;
 	player->dir_y = 0.;
-	player->mov_speed = 0.15;
+	player->mov_speed = 0.17;
 	player->rot_speed = 0.12;
 	player->plan_x = 0.;
 	player->plan_y = 0.;

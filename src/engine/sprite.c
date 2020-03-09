@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:20:37 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/07 08:41:19 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/09 10:30:19 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	sorted_insert(t_sprites **head_ref, t_sprites *new_node)
 	{
 		current = (*head_ref);
 		while (current->next != NULL
-			&& current->next->distance > new_node->distance)
+			&& current->next->distance >= new_node->distance)
 		{
 			current = current->next;
 		}
@@ -50,7 +50,10 @@ void		is_sprite(t_game *game, t_ray *ray)
 	{
 		if (current->sprite->x == new->x
 			&& current->sprite->y == new->y)
-			return ;
+		{
+			free(new);
+			return;
+		}
 		current = current->next;
 	}
 	distance = (game->player->pos_x - new->x) * (game->player->pos_x - new->x)
@@ -59,30 +62,31 @@ void		is_sprite(t_game *game, t_ray *ray)
 	sorted_insert(&(game->sprites_head), new_sprite);
 }
 
-void projection_sprite(
+void		projection_sprite(
 	t_player *player,
 	t_window *window,
 	t_sprites *current)
 {
-	current->sprite_x = current->sprite->x - player->pos_x;
-	current->sprite_y = current->sprite->y - player->pos_y;
+	current->sprite_x = current->sprite->x - (player->pos_x - 0.5);
+	current->sprite_y = current->sprite->y - (player->pos_y - 0.5);
 	current->inv_det = 1.0 / (player->plan_x * player->dir_y - player->plan_y * player->dir_x);
 	current->transform_x = current->inv_det * (player->dir_y * current->sprite_x - player->dir_x * current->sprite_y);
-	current->transform_x = current->inv_det * (player->plan_x * current->sprite_y - player->plan_y * current->sprite_x);
+	current->transform_y = current->inv_det * (player->plan_x * current->sprite_y - player->plan_y * current->sprite_x);
 	current->sprite_screen_x = (int)((window->width / 2) * (1 + current->transform_x / current->transform_y));
 }
 
-void size_sprite(t_sprites *current, t_window *window)
+void		size_sprite(t_sprites *current, t_window *window)
 {
-	current->sprite_height = fabs((int)(window->height / current->transform_y));
+	current->sprite_height = abs((int)(window->height / current->transform_y));
 	current->draw_start_y = -current->sprite_height / 2 + window->height / 2;
 	if (current->draw_start_y < 0)
 		current->draw_start_y = 0;
 	current->draw_end_y = current->sprite_height / 2 + window->height / 2;
 	if (current->draw_end_y >= window->height)
 		current->draw_end_y = window->height - 1;
-	current->sprite_width = fabs((int)(window->height / current->transform_y));
-	current->draw_start_x = -current->sprite_width / 2 + current->sprite_screen_x;
+	current->sprite_width = abs((int)(window->height / current->transform_y));
+	current->draw_start_x = -current->sprite_width / 2
+	+ current->sprite_screen_x;
 	if (current->draw_start_x < 0)
 		current->draw_start_x = 0;
 	current->draw_end_x = current->sprite_width / 2 + current->sprite_screen_x;

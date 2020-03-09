@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/07 08:42:01 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/09 10:55:26 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 ** ===== Prototypes =====
 */
 void		print_map(int **map, int nb_row, int nb_col);
-void print_sprites(t_sprites *head_ref);
+void		print_sprites(t_sprites *head_ref);
+void		print_sprite(t_sprites *sprite);
 
 t_player	*player_struct_init(void);
 t_layout	*layout_struct_init(void);
@@ -48,6 +49,7 @@ int			check_args(char *map_path, char *option);
 void		check_cub_data(t_game *game);
 
 void		free_split(char **str);
+void		free_sprites(t_sprites **head_ref);
 void		ft_puterror(char *str);
 void		exit_failure(char *error);
 
@@ -66,16 +68,18 @@ void		rotate_left(t_player *player);
 void		rotate_right(t_player *player);
 
 void		dda(t_game *game, t_layout *layout, t_ray *ray);
-void		raycasting(t_game *game, t_player *player, t_window *window, t_ray ray);
+void		raycasting(t_game *game, t_player *player, t_window *window,
+			t_ray ray);
 
 void		draw_col(t_game *game, t_window *window, t_ray *ray);
 void		pixel_put(t_image *image, int x, int y, int color);
 void		set_color_on_image(t_game *game, t_ray *ray);
 void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray);
-void		texture_put(t_game *game, t_image *texture, t_ray *ray);
 
 void		is_sprite(t_game *game, t_ray *ray);
-void draw_sprites(t_game *game, t_player *player, t_window *window, t_ray *ray);
-void size_sprite(t_sprites *current, t_window *window);
-void projection_sprite(t_player *player, t_window *window, t_sprites *current);
+void		draw_sprites(t_game *game, t_player *player,
+			t_window *window, t_ray *ray);
+void		size_sprite(t_sprites *current, t_window *window);
+void		projection_sprite(t_player *player, t_window *window,
+			t_sprites *current);
 #endif

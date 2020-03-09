@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 08:57:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/01 10:44:22 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 11:06:11 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,19 @@ void	free_split(char **str)
 	while (str[len])
 		free(str[len++]);
 	free(str);
+}
+
+void	free_sprites(t_sprites **head_ref)
+{
+	t_sprites *current;
+	t_sprites *next;
+
+	current = (*head_ref);
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	(*head_ref) = NULL;
 }

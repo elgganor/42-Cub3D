@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mrouabeh <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 18:06:58 by mrouabeh          #+#    #+#              #
-#    Updated: 2019/12/05 13:52:40 by mrouabeh         ###   ########.fr        #
+#    Updated: 2020/03/09 08:22:17 by mrouabeh         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ DISPLAY=display/ft_putnbr.c \
 	display/ft_putnbr_fd.c \
 	display/ft_putstr_fd.c \
 	display/ft_putchar.c \
-	display/ft_putstr.c 
+	display/ft_putstr.c \
+	display/ft_putnbrn.c \
+	display/ft_putstrn.c
 CHECKER=checker/ft_islower.c \
 	checker/ft_isupper.c \
 	checker/ft_isalnum.c \

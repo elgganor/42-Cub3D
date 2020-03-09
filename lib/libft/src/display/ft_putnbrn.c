@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_loop.c                                        :+:      :+:    :+:   */
+/*   ft_putnbrn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/25 12:32:49 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 11:06:20 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/03/09 08:19:29 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/03/09 08:20:27 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-int	main_loop(t_game *game)
+void ft_putnbrn(int n)
 {
-	key_manager(game);
-	mlx_clear_window(game->window->mlx_ptr, game->window->win_ptr);
-	raycasting(game, game->player, game->window, game->ray);
-	return (0);
+	ft_putnbr(n);
+	ft_putchar('\n');
 }

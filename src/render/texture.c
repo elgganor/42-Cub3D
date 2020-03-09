@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 07:49:51 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 10:57:52 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 08:10:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	pixel_put(t_image *image, int x, int y, int color)
+void		pixel_put(t_image *image, int x, int y, int color)
 {
 	unsigned char *src;
 	unsigned char r;
@@ -28,7 +28,7 @@ void	pixel_put(t_image *image, int x, int y, int color)
 	image->img_data[y * image->size_line + x * image->bpp / 8 + 2] = b;
 }
 
-void	set_color_on_image(t_game *game, t_ray *ray)
+void		set_color_on_image(t_game *game, t_ray *ray)
 {
 	int	y;
 
@@ -40,7 +40,7 @@ void	set_color_on_image(t_game *game, t_ray *ray)
 		pixel_put(game->image, ray->x, y++, game->f_color);
 }
 
-void	texture_put(t_game *game, t_image *texture, t_ray *ray)
+static void	texture_put(t_game *game, t_image *texture, t_ray *ray)
 {
 	int	d;
 
@@ -63,7 +63,7 @@ void	texture_put(t_game *game, t_image *texture, t_ray *ray)
 	ray->y++;
 }
 
-void	set_texture_on_image(t_game *game, t_image *texture, t_ray *ray)
+void		set_texture_on_image(t_game *game, t_image *texture, t_ray *ray)
 {
 	ray->y = ray->draw_start;
 	while (ray->y <= ray->draw_end)

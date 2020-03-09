@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 08:52:12 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/06 13:02:08 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 10:05:50 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,9 @@ t_sprites	*sprites_struct_init(t_sprite *sprite, double distance)
 	sprites->sprite_screen_x = 0;
 	sprites->sprite_height = 0;
 	sprites->sprite_width = 0;
+	sprites->x = 0;
+	sprites->y = 0;
+	sprites->text_x = 0;
+	sprites->text_y = 0;
 	return (sprites);
 }
