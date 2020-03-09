@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 07:29:40 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 13:39:22 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ typedef struct	s_sprites
 typedef struct	s_game
 {
 	int			map_started;
+	int			save;
 
 	t_player	*player;
 	t_layout	*layout;

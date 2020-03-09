@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 08:59:08 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 13:46:05 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ static void	get_step_and_side_dist(t_ray *ray, t_player *player)
 	}
 }
 
+static void	get_perp_and_height(t_ray *ray, t_player *player, t_window *window)
+{
+	if (ray->side == 0 || ray->side == 1)
+		ray->perp_wall_dist = (ray->map_x - player->pos_x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
+	else if (ray->side == 2 || ray->side == 3)
+		ray->perp_wall_dist = (ray->map_y - player->pos_y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
+	ray->line_height = (int)(window->height / ray->perp_wall_dist);
+	ray->z_buffer[ray->x] = ray->perp_wall_dist;
+}
+
 static void	init_ray(t_ray *ray, t_player *player, t_window *window)
 {
 	ray->camera_x = 2 * ray->x / (double)window->width - 1;
@@ -83,14 +93,7 @@ void		raycasting(
 	{
 		init_ray(&ray, player, window);
 		dda(game, game->layout, &ray);
-		if (ray.side == 0 || ray.side == 1)
-			ray.perp_wall_dist = (ray.map_x - player->pos_x
-				+ (1 - ray.step_x) / 2) / ray.ray_dir_x;
-		else if (ray.side == 2 || ray.side == 3)
-			ray.perp_wall_dist = (ray.map_y - player->pos_y + (1 - ray.step_y)
-				/ 2) / ray.ray_dir_y;
-		ray.line_height = (int)(window->height / ray.perp_wall_dist);
-		ray.z_buffer[ray.x] = ray.perp_wall_dist;
+		get_perp_and_height(&ray, player, window);
 		draw_col(game, window, &ray);
 		ray.x++;
 	}

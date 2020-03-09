@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cub_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/27 07:58:51 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/09 13:28:45 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	check_dimensions(int *width, int *height)
 		*width = 480;
 	if (*height < 320)
 		*height = 320;
-	if (*width > MAX_WIDTH)
-		*width = MAX_WIDTH;
-	if (*height > MAX_HEIGHT)
-		*height = MAX_HEIGHT;
+	if (*width >= 2560)
+		*width = 2560;
+	if (*height >= 1440)
+		*height = 1440;
 }
 
 static void	check_texture(char *texture_path, char *texture)
@@ -82,6 +82,7 @@ void		check_cub_data(t_game *game)
 	check_texture(game->so_texture->path, "SO: ");
 	check_texture(game->we_texture->path, "WE: ");
 	check_texture(game->ea_texture->path, "EA: ");
-	check_texture(game->sp_texture->path, "S : ");
+	if (game->sp_texture->path)
+		check_texture(game->sp_texture->path, "S : ");
 	check_map(game);
 }

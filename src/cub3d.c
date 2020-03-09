@@ -6,15 +6,14 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/02 10:54:11 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 13:40:33 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	game_start(t_game *game, char *option)
+static void	game_loop(t_game *game)
 {
-	(void)option;
 	game->window->mlx_ptr = mlx_init();
 	game->window->win_ptr = mlx_new_window(game->window->mlx_ptr,
 						game->window->width, game->window->height, "CUB3D");
@@ -26,7 +25,8 @@ static void	game_start(t_game *game, char *option)
 	mlx_hook(game->window->win_ptr, KEY_PRESS, 1L << 0, key_press, game);
 	mlx_hook(game->window->win_ptr, KEY_RELEASE, 1L << 1, key_release, game);
 	mlx_loop_hook(game->window->mlx_ptr, main_loop, game);
-	mlx_loop(game->window->mlx_ptr);
+	if (game->save == 0)
+		mlx_loop(game->window->mlx_ptr);
 }
 
 static void	cub3d(char *map_path, char *option)
@@ -36,7 +36,9 @@ static void	cub3d(char *map_path, char *option)
 	if (!(game = game_struct_init()))
 		exit_failure("Erreur d'initialisation\n");
 	read_map(map_path, game);
-	game_start(game, option);
+	if (option)
+		game->save = 1;
+	game_loop(game);
 }
 
 int			main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 08:57:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 11:06:11 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/09 12:55:06 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,15 @@ void	free_sprites(t_sprites **head_ref)
 		current = next;
 	}
 	(*head_ref) = NULL;
+}
+
+void	free_game(t_game *game)
+{
+	free(game->image);
+	free(game->no_texture);
+	free(game->so_texture);
+	free(game->we_texture);
+	free(game->ea_texture);
+	free(game->sp_texture);
+	free(game->player);
 }
