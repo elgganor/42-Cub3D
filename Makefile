@@ -32,7 +32,8 @@ EVENT=event_manager/key_event_handler.c \
 	event_manager/main_loop.c
 RENDER=render/draw.c \
 	render/texture.c \
-	render/sprite.c
+	render/sprite.c \
+	render/bitmap.c
 SRCS=$(PARSING) \
 	$(UTILS) \
 	$(ENGINE) \

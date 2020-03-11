@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 13:28:45 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:27:25 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,12 @@ static void	check_map(t_game *game)
 		{
 			if (!ft_islayout_char(game->layout->tmp_map[i]))
 				exit_failure("Wrong characters in the layout;\n");
+			if (game->layout->tmp_map[i] == '2'
+				&& game->sp_texture->path == NULL)
+			{
+				clear_game(game);
+				exit_failure("The sprite texture doesn't exist;\n");
+			}
 			i++;
 		}
 		if (game->player->dir == '0')

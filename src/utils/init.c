@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 13:39:37 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/11 11:10:37 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ t_game		*game_struct_init(void)
 		|| !(game->so_texture = image_struct_init())
 		|| !(game->we_texture = image_struct_init())
 		|| !(game->ea_texture = image_struct_init())
+		|| !(game->sp_texture = image_struct_init())
 		|| !(game->image = image_struct_init()))
 		return (NULL);
-	game->sp_texture = image_struct_init();
 	if (!(game->player = player_struct_init())
 		|| !(game->layout = layout_struct_init())
 		|| !(game->window = window_struct_init())

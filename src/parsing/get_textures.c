@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 07:16:14 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/03 08:10:34 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:06:38 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static void	set_texture(t_game *game, t_image *texture)
 		&texture->width,
 		&texture->height)))
 	{
+		clear_game(game);
 		exit_failure("Impossible to load a texture;\n");
 	}
 	texture->img_data =
@@ -35,5 +36,6 @@ void		get_texture(t_game *game)
 	set_texture(game, game->so_texture);
 	set_texture(game, game->we_texture);
 	set_texture(game, game->ea_texture);
-	set_texture(game, game->sp_texture);
+	if (game->sp_texture->path)
+		set_texture(game, game->sp_texture);
 }

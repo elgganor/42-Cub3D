@@ -6,11 +6,17 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 13:40:33 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/11 10:58:47 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void		exit_game(t_game *game)
+{
+	clear_game(game);
+	exit(EXIT_SUCCESS);
+}
 
 static void	game_loop(t_game *game)
 {

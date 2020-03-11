@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:20:37 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/09 10:30:19 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:19:08 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		is_sprite(t_game *game, t_ray *ray)
 			&& current->sprite->y == new->y)
 		{
 			free(new);
-			return;
+			return ;
 		}
 		current = current->next;
 	}
@@ -69,10 +69,14 @@ void		projection_sprite(
 {
 	current->sprite_x = current->sprite->x - (player->pos_x - 0.5);
 	current->sprite_y = current->sprite->y - (player->pos_y - 0.5);
-	current->inv_det = 1.0 / (player->plan_x * player->dir_y - player->plan_y * player->dir_x);
-	current->transform_x = current->inv_det * (player->dir_y * current->sprite_x - player->dir_x * current->sprite_y);
-	current->transform_y = current->inv_det * (player->plan_x * current->sprite_y - player->plan_y * current->sprite_x);
-	current->sprite_screen_x = (int)((window->width / 2) * (1 + current->transform_x / current->transform_y));
+	current->inv_det = 1.0 / (player->plan_x * player->dir_y - player->plan_y
+	* player->dir_x);
+	current->transform_x = current->inv_det
+	* (player->dir_y * current->sprite_x - player->dir_x * current->sprite_y);
+	current->transform_y = current->inv_det
+	* (player->plan_x * current->sprite_y - player->plan_y * current->sprite_x);
+	current->sprite_screen_x = (int)((window->width / 2)
+	* (1 + current->transform_x / current->transform_y));
 }
 
 void		size_sprite(t_sprites *current, t_window *window)

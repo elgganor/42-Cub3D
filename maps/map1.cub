@@ -1,4 +1,4 @@
-R 490 330
+	  R 490 330
 NO ./textures/bluestone.xpm
 SO ./textures/colorstone.xpm
 WE ./textures/greystone.xpm

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_cub_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/27 09:48:42 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/11 13:43:13 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,10 @@ void	get_map(char *line, t_game *game)
 				init_player(game->player);
 			}
 			else
+			{
+				clear_game(game);
 				exit_failure("The map already has a direction;\n");
+			}
 		}
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/27 08:01:54 by mohamed          ###   ########.fr       */
+/*   Updated: 2020/03/11 14:05:13 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		read_map(char *map_path, t_game *game)
 
 	if ((fd = open(map_path, O_RDONLY)) < 0)
 	{
+		clear_game(game);
 		exit_failure("The file doesn't exist;\n");
 		exit(EXIT_FAILURE);
 	}

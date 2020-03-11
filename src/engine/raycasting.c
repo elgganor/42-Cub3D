@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 13:46:05 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/11 14:18:12 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ static void	get_step_and_side_dist(t_ray *ray, t_player *player)
 static void	get_perp_and_height(t_ray *ray, t_player *player, t_window *window)
 {
 	if (ray->side == 0 || ray->side == 1)
-		ray->perp_wall_dist = (ray->map_x - player->pos_x + (1 - ray->step_x) / 2) / ray->ray_dir_x;
+		ray->perp_wall_dist = (ray->map_x - player->pos_x + (1 - ray->step_x)
+		/ 2) / ray->ray_dir_x;
 	else if (ray->side == 2 || ray->side == 3)
-		ray->perp_wall_dist = (ray->map_y - player->pos_y + (1 - ray->step_y) / 2) / ray->ray_dir_y;
+		ray->perp_wall_dist = (ray->map_y - player->pos_y + (1 - ray->step_y)
+		/ 2) / ray->ray_dir_y;
 	ray->line_height = (int)(window->height / ray->perp_wall_dist);
 	ray->z_buffer[ray->x] = ray->perp_wall_dist;
 }
@@ -99,7 +101,13 @@ void		raycasting(
 	}
 	if (game->sprites_head != NULL)
 		draw_sprites(game, player, window, &ray);
-	mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,
-		game->image->img_ptr, 0, 0);
+	if (game->save == 1)
+	{
+		create_bitmap(game->image);
+		exit_game(game);
+	}
+	else
+		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,
+			game->image->img_ptr, 0, 0);
 	free(ray.z_buffer);
 }
