@@ -22,7 +22,8 @@ UTILS=utils/handle_errors.c \
 	utils/init.c \
 	utils/init2.c \
 	utils/display.c \
-	utils/set_position.c
+	utils/set_position.c \
+	utils/clear.c
 ENGINE=engine/camera.c \
 	engine/digital_differential_analyser.c \
 	engine/player.c \

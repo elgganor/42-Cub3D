@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:24:37 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/11 11:20:27 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 09:09:59 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,11 @@ void		size_sprite(t_sprites *current, t_window *window);
 void		projection_sprite(t_player *player, t_window *window,
 			t_sprites *current);
 
-void		create_bitmap(t_image *image);
+void		create_bitmap(t_game *game);
 
 void		clear_game(t_game *game);
 void		clear_window(t_window *window);
 void		clear_map(t_game *game);
+void		clear_image(t_image *image, t_window *window);
 void		exit_game(t_game *game);
 #endif

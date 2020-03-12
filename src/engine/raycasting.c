@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/11 14:18:12 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 10:37:22 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,13 @@ void		raycasting(
 	}
 	if (game->sprites_head != NULL)
 		draw_sprites(game, player, window, &ray);
+	free(ray.z_buffer);
 	if (game->save == 1)
 	{
-		create_bitmap(game->image);
+		create_bitmap(game);
 		exit_game(game);
 	}
 	else
 		mlx_put_image_to_window(window->mlx_ptr, window->win_ptr,
 			game->image->img_ptr, 0, 0);
-	free(ray.z_buffer);
 }
