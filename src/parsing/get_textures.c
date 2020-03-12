@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 07:16:14 by mohamed           #+#    #+#             */
-/*   Updated: 2020/03/11 14:06:38 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:02:55 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ static void	set_texture(t_game *game, t_image *texture)
 		texture->path,
 		&texture->width,
 		&texture->height)))
-	{
-		clear_game(game);
-		exit_failure("Impossible to load a texture;\n");
-	}
+		exit_failure("Impossible to load a texture;\n", game);
 	texture->img_data =
 		mlx_get_data_addr(texture->img_ptr,
 		&(texture->bpp),

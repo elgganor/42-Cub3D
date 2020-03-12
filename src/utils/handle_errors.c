@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 09:53:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/02/02 08:07:12 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:50:21 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	ft_puterror(char *str)
 	ft_putstr_fd(str, STDERR_FILENO);
 }
 
-void	exit_failure(char *error)
+void	exit_failure(char *error, t_game *game)
 {
+	clear_game(game);
 	ft_puterror(error);
 	exit(EXIT_FAILURE);
 }

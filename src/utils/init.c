@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:42:35 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 12:28:17 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 15:51:27 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_game		*game_struct_init(void)
 	if (!(game = (t_game *)malloc(sizeof(t_game))))
 		return (NULL);
 	game->map_started = 0;
+	game->map_stopped = 0;
 	game->save = 0;
 	game->c_color = 0;
 	game->f_color = 0;

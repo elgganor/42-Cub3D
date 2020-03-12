@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 13:25:26 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 18:22:43 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,22 @@ static void	check_dimensions(int *width, int *height)
 		*height = 1440;
 }
 
-static void	check_texture(char *texture_path, char *texture)
+static void	check_texture(t_game *game, char *texture_path)
 {
 	char	**path;
 	int		len;
 
 	if (!texture_path)
-	{
-		ft_putstr_fd("Error\n", STDERR_FILENO);
-		ft_putstr_fd(texture, STDERR_FILENO);
-		ft_putstr_fd("Missing texture;\n", STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
+		exit_failure("Missing texture;\n", game);
 	len = 0;
 	path = ft_split(texture_path, '.');
 	while (path[len])
 		len++;
 	if (ft_strcmp(path[len - 1], "xpm"))
-		exit_failure("Wrong extension for xpm file;\n");
+	{
+		free_split(path);
+		exit_failure("Wrong extension for xpm file;\n", game);
+	}
 	free_split(path);
 }
 
@@ -59,24 +57,21 @@ static void	check_map(t_game *game)
 	int	i;
 
 	if (!game->layout)
-		exit_failure("Missing layout;\n");
+		exit_failure("Missing layout;\n", game);
 	else
 	{
 		i = 0;
 		while (game->layout->tmp_map[i])
 		{
 			if (!ft_islayout_char(game->layout->tmp_map[i]))
-				exit_failure("Wrong characters in the layout;\n");
+				exit_failure("Wrong characters in the layout;\n", game);
 			if (game->layout->tmp_map[i] == '2'
 				&& game->sp_texture->path == NULL)
-			{
-				clear_game(game);
-				exit_failure("The sprite texture doesn't exist;\n");
-			}
+				exit_failure("The sprite texture doesn't exist;\n", game);
 			i++;
 		}
 		if (game->player->dir == '0')
-			exit_failure("No direction;\n");
+			exit_failure("No direction;\n", game);
 	}
 }
 
@@ -89,11 +84,11 @@ void		check_cub_data(t_game *game)
 	}
 	check_dimensions(&(game->window->width),
 					&(game->window->height));
-	check_texture(game->no_texture->path, "NO: ");
-	check_texture(game->so_texture->path, "SO: ");
-	check_texture(game->we_texture->path, "WE: ");
-	check_texture(game->ea_texture->path, "EA: ");
+	check_texture(game, game->no_texture->path);
+	check_texture(game, game->so_texture->path);
+	check_texture(game, game->we_texture->path);
+	check_texture(game, game->ea_texture->path);
 	if (game->sp_texture->path)
-		check_texture(game->sp_texture->path, "S : ");
+		check_texture(game, game->sp_texture->path);
 	check_map(game);
 }

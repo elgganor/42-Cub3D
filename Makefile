@@ -23,14 +23,16 @@ UTILS=utils/handle_errors.c \
 	utils/init2.c \
 	utils/display.c \
 	utils/set_position.c \
-	utils/clear.c
+	utils/clear.c \
+	utils/utils.c
 ENGINE=engine/camera.c \
 	engine/digital_differential_analyser.c \
 	engine/player.c \
 	engine/raycasting.c \
 	engine/sprite.c
 EVENT=event_manager/key_event_handler.c \
-	event_manager/main_loop.c
+	event_manager/main_loop.c \
+	event_manager/window_destroy.c
 RENDER=render/draw.c \
 	render/texture.c \
 	render/sprite.c \
@@ -54,7 +56,7 @@ $(NAME): $(OBJ)
 ifeq ($(LIB), $(LIB_MAKE))
 	@make -C lib/minilibx
 endif
-	@gcc $(FLAGS) $(INC) -o $(NAME) $(OBJ) $(LIB)
+	@gcc $(FLAGSD) $(INC) -o $(NAME) $(OBJ) $(LIB)
 
 %.o: %.c
 	@gcc $(FLAGS) $(INC) -o $@ -c $<
