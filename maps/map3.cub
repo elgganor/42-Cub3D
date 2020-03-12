@@ -5,7 +5,7 @@ WE ./textures/greystone.xpm
 EA ./textures/redbrick.xpm
 S ./textures/barrel.xpm
 
-F 12,15,241
+F 243,254,125
 C 123,54,146
 
   1111111

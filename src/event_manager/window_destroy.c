@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:56:20 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 12:59:36 by mrouabeh         ###   ########.fr       */
+/*   Created: 2020/03/12 18:15:29 by mrouabeh          #+#    #+#             */
+/*   Updated: 2020/03/12 18:18:20 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	leave(void)
+int	destroy_window(t_game *game)
 {
-	
+	exit_game(game);
+	return (0);
 }

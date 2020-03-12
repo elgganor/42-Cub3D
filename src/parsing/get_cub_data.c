@@ -6,18 +6,11 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 13:43:23 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/11 13:43:13 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:02:17 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int		ft_isdirection(char c)
-{
-	if (c == 'N' || c == 'W' || c == 'S' || c == 'E')
-		return (1);
-	return (0);
-}
 
 void	get_resolution(char *line, int *width, int *height)
 {
@@ -44,7 +37,7 @@ void	get_texture_path(char *line, t_image *texture)
 	free_split(path);
 }
 
-void	get_color(char *line, int *color)
+void	get_color(char *line, int *color, t_game *game)
 {
 	int		i;
 	char	**rgb;
@@ -54,7 +47,7 @@ void	get_color(char *line, int *color)
 	while (line[i] && !ft_isdigit(line[i]))
 		i++;
 	rgb = ft_split(line + i, ',');
-	*color = get_color_handle(rgb);
+	*color = get_color_handle(rgb, game);
 	free_split(rgb);
 }
 
@@ -75,10 +68,7 @@ void	get_map(char *line, t_game *game)
 				init_player(game->player);
 			}
 			else
-			{
-				clear_game(game);
-				exit_failure("The map already has a direction;\n");
-			}
+				exit_failure("The map already has a direction;\n", game);
 		}
 	}
 }

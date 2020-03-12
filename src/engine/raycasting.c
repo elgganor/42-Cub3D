@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/12 13:36:08 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 10:37:22 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 17:03:54 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		raycasting(
 {
 	ray.x = 0;
 	if (!(ray.z_buffer = (double *)malloc(sizeof(double) * window->width)))
-		exit_failure("Impossible to allocate memory for the z_buffer;\n");
+		exit_failure("Impossible to allocate memory for the z_buffer;\n", game);
 	ft_bzero(ray.z_buffer, sizeof(double) * window->width);
 	while (ray.x < window->width)
 	{

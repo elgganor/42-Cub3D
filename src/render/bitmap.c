@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 08:31:09 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 12:55:42 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 16:54:37 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,12 @@ static void	fill_bitmap(t_game *game, t_image *image, int fd)
 	}
 }
 
-void	create_bitmap(t_game *game)
+void		create_bitmap(t_game *game)
 {
 	int	fd;
 
 	if ((fd = open("screenshot.bmp", O_CREAT | O_RDWR)) < 0)
-	{
-		clear_game(game);
-		exit_failure("Impossible to create the bitmap file;\n");
-	}
+		exit_failure("Impossible to create the bitmap file;\n", game);
 	file_header(game->image, fd);
 	image_header(game, game->image, fd);
 	fill_bitmap(game, game->image, fd);
