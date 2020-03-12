@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/11 14:27:25 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/12 13:25:26 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@ static void	check_map(t_game *game)
 
 void		check_cub_data(t_game *game)
 {
+	if (game->window->height == 0 || game->window->width == 0)
+	{
+		clear_game(game);
+		exit_failure("Resolution missing;\n");
+	}
 	check_dimensions(&(game->window->width),
 					&(game->window->height));
 	check_texture(game->no_texture->path, "NO: ");

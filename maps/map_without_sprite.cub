@@ -1,17 +1,15 @@
-	  R 490 330
+R 490 330
 NO ./textures/bluestone.xpm
 SO ./textures/colorstone.xpm
 WE ./textures/greystone.xpm
 EA ./textures/redbrick.xpm
-S ./textures/barrel.xpm
-
 F 243,249,210
 C 209,250,255
 
 111111111
 1000S0001
 100000001
-100020001
-101110001
-121 10001
-111 11111
+100000001
+100000001
+100000001
+111111111
