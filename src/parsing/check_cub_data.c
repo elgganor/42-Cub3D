@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_cub_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mohamed <mohamed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 10:57:55 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 18:22:43 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/03/14 19:12:06 by mohamed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void		check_cub_data(t_game *game)
 	if (game->window->height == 0 || game->window->width == 0)
 	{
 		clear_game(game);
-		exit_failure("Resolution missing;\n");
+		exit_failure("Resolution missing;\n", game);
 	}
 	check_dimensions(&(game->window->width),
 					&(game->window->height));
