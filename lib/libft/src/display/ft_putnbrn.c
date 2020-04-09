@@ -6,13 +6,13 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 08:19:29 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/09 08:20:27 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/04/09 11:55:19 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putnbrn(int n)
+void	ft_putnbrn(int n)
 {
 	ft_putnbr(n);
 	ft_putchar('\n');

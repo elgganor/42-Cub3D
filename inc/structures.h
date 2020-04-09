@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:38:14 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 15:51:29 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/04/09 11:53:50 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,6 @@ typedef struct	s_sprites
 	int					y;
 	struct s_sprites	*next;
 }				t_sprites;
-
 
 typedef struct	s_game
 {
