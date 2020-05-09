@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 10:29:13 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/12 17:29:26 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/05/09 16:40:31 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 static void	get_data(char *line, t_game *game)
 {
-	if (!ft_strncmp(line, "R", 1))
-		get_resolution(line, &(game->window->width),
+	char	*trim;
+
+	trim = ft_strtrim(line, " ");
+	if (!ft_strncmp(trim, "R", 1))
+		get_resolution(trim, &(game->window->width),
 						&(game->window->height));
-	else if (!ft_strncmp(line, "NO", 2))
-		get_texture_path(line, game->no_texture);
-	else if (!ft_strncmp(line, "SO", 2))
-		get_texture_path(line, game->so_texture);
-	else if (!ft_strncmp(line, "WE", 2))
-		get_texture_path(line, game->we_texture);
-	else if (!ft_strncmp(line, "EA", 2))
-		get_texture_path(line, game->ea_texture);
-	else if (!ft_strncmp(line, "S", 1))
-		get_texture_path(line, game->sp_texture);
-	else if (!ft_strncmp(line, "C", 1))
-		get_color(line, &(game->c_color), game);
-	else if (!ft_strncmp(line, "F", 1))
-		get_color(line, &(game->f_color), game);
+	else if (!ft_strncmp(trim, "NO", 2))
+		get_texture_path(trim, game->no_texture);
+	else if (!ft_strncmp(trim, "SO", 2))
+		get_texture_path(trim, game->so_texture);
+	else if (!ft_strncmp(trim, "WE", 2))
+		get_texture_path(trim, game->we_texture);
+	else if (!ft_strncmp(trim, "EA", 2))
+		get_texture_path(trim, game->ea_texture);
+	else if (!ft_strncmp(trim, "S", 1))
+		get_texture_path(trim, game->sp_texture);
+	else if (!ft_strncmp(trim, "C", 1))
+		get_color(trim, &(game->c_color), game);
+	else if (!ft_strncmp(trim, "F", 1))
+		get_color(trim, &(game->f_color), game);
+	free(trim);
 }
 
 static void	get_cub_data(char *line, t_game *game)
@@ -72,8 +76,6 @@ void		read_map(char *map_path, t_game *game)
 	{
 		while (get_next_line(fd, &line) > 0)
 		{
-			if (game->map_started == 0)
-				line = ft_strtrim(line, " ");
 			get_cub_data(line, game);
 			free(line);
 		}
