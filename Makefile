@@ -5,7 +5,7 @@ FLAGSD=-Wall -Wextra -Werror -fsanitize=address
 FLAGS=-Wall -Wextra -Werror
 
 LIB_SRC=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
-LIB_MAKE=-L./libft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit
+LIB_LINUX=-L./libft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit
 LIB=$(LIB_SRC)
 
 SRC_PATH=./src/
@@ -63,7 +63,7 @@ endif
 
 clean: $(OBJ)
 	@make $@ -C libft
-ifeq ($(LIB), $(LIB_MAKE))
+ifeq ($(LIB), $(LIB_LINUX))
 	@make $@ -C minilibx
 endif
 	@rm -f $(OBJ)
