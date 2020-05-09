@@ -4,8 +4,8 @@ INC=-I./inc
 FLAGSD=-Wall -Wextra -Werror -fsanitize=address
 FLAGS=-Wall -Wextra -Werror
 
-LIB_SRC=-L./lib/libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
-LIB_MAKE=-L./lib/libft -lft -L./lib/minilibx -lmlx -framework OpenGL -framework AppKit
+LIB_SRC=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
+LIB_MAKE=-L./libft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit
 LIB=$(LIB_SRC)
 
 SRC_PATH=./src/
@@ -52,9 +52,9 @@ OBJ=$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C lib/libft
+	@make -C libft
 ifeq ($(LIB), $(LIB_MAKE))
-	@make -C lib/minilibx
+	@make -C minilibx
 endif
 	@gcc $(FLAGSD) $(INC) -o $(NAME) $(OBJ) $(LIB)
 
@@ -62,14 +62,14 @@ endif
 	@gcc $(FLAGS) $(INC) -o $@ -c $<
 
 clean: $(OBJ)
-	@make $@ -C lib/libft
+	@make $@ -C libft
 ifeq ($(LIB), $(LIB_MAKE))
-	@make $@ -C lib/minilibx
+	@make $@ -C minilibx
 endif
 	@rm -f $(OBJ)
 
 fclean: clean
-	@make $@ -C lib/libft
+	@make $@ -C libft
 	@rm -f $(NAME)
 
 re:
