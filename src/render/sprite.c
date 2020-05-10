@@ -6,7 +6,7 @@
 /*   By: mrouabeh <mrouabeh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 13:30:15 by mrouabeh          #+#    #+#             */
-/*   Updated: 2020/03/11 14:23:49 by mrouabeh         ###   ########.fr       */
+/*   Updated: 2020/05/10 14:02:49 by mrouabeh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,8 @@ void		draw_sprites(t_game *game, t_player *player, t_window *window,
 					t_ray *ray)
 {
 	t_sprites	*current;
-	int			i;
 
 	current = game->sprites_head;
-	i = 0;
 	while (current != NULL)
 	{
 		projection_sprite(player, window, current);

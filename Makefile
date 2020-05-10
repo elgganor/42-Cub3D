@@ -4,9 +4,9 @@ INC=-I./inc
 FLAGSD=-Wall -Wextra -Werror -fsanitize=address
 FLAGS=-Wall -Wextra -Werror
 
-LIB_SRC=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
-LIB_LINUX=-L./libft -lft -L./minilibx -lmlx -framework OpenGL -framework AppKit
-LIB=$(LIB_SRC)
+LIB_LINUX=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx
+LIB_MAC=$(LIB_LINUX) -framework OpenGL -framework AppKit
+LIB=$(LIB_MAC)
 
 SRC_PATH=./src/
 PARSING=parsing/check_args.c \
@@ -53,9 +53,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C libft
-ifeq ($(LIB), $(LIB_MAKE))
-	@make -C minilibx
-endif
 	@gcc $(FLAGSD) $(INC) -o $(NAME) $(OBJ) $(LIB)
 
 %.o: %.c
@@ -63,9 +60,6 @@ endif
 
 clean: $(OBJ)
 	@make $@ -C libft
-ifeq ($(LIB), $(LIB_LINUX))
-	@make $@ -C minilibx
-endif
 	@rm -f $(OBJ)
 
 fclean: clean
