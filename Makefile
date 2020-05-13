@@ -4,8 +4,8 @@ INC=-I./inc
 FLAGSD=-Wall -Wextra -Werror -fsanitize=address
 FLAGS=-Wall -Wextra -Werror
 
-LIB_LINUX=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx
-LIB_MAC=$(LIB_LINUX) -framework OpenGL -framework AppKit
+LIB_LINUX=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -L/usr/include -lm -lbsd -lX11 -lXext
+LIB_MAC=-L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -framework OpenGL -framework AppKit
 LIB=$(LIB_MAC)
 
 SRC_PATH=./src/
